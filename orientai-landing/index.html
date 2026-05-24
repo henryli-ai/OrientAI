@@ -210,9 +210,22 @@
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 0.94fr 1.06fr;
-        gap: 42px;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 52px;
         align-items: center;
+      }
+
+      .hero-logo-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+      }
+
+      .hero-logo-col img {
+        width: min(320px, 88%);
+        height: auto;
+        display: block;
       }
 
       .eyebrow-row {
@@ -1569,8 +1582,12 @@
           grid-template-columns: 1fr;
         }
 
-        .hero-product-mock {
-          margin-top: 32px;
+        .hero-logo-col {
+          padding: 16px 0 0;
+        }
+
+        .hero-logo-col img {
+          width: min(200px, 60%);
         }
 
         .hero-features {
@@ -1601,8 +1618,11 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
+          <div class="hero-logo-col">
+            <img src="./orientai-logo.png" alt="OrientAI" />
+          </div>
+
           <div>
-            <img src="./orientai-logo.png" alt="OrientAI" style="height:96px;width:auto;margin-bottom:22px;display:block;" />
             <h1 id="hero-title">專為企業而生的<br>Agentic AI 平台</h1>
             <div class="hero-features">
               <div class="hero-feat">
@@ -1610,8 +1630,8 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a596" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">安全可控</div>
-                  <div class="hf-sub">企業權限控管 · 審計日誌 · Token 配額全面治理</div>
+                  <div class="hf-title">AI 使用全程在你掌控中</div>
+                  <div class="hf-sub">RBAC 角色授權 · 審計日誌 · Token 配額，每次呼叫都有紀錄，Shadow AI 零風險</div>
                 </div>
               </div>
               <div class="hero-feat">
@@ -1619,8 +1639,8 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5d48d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">拖拉點選，啟用知識 AI Agent</div>
-                  <div class="hf-sub">上傳文件自動建立索引，員工自然語言問答並引用來源</div>
+                  <div class="hf-title">5 分鐘啟用知識 AI Agent</div>
+                  <div class="hf-sub">拖拉上傳企業文件，自動建立索引，員工即刻問答並精準引用出處</div>
                 </div>
               </div>
               <div class="hero-feat">
@@ -1628,54 +1648,14 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c27c00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">Vibe Coding 讓員工生產力躍升</div>
-                  <div class="hf-sub">自然語言打造企業工具，IT 統一審核部署，當天可用</div>
+                  <div class="hf-title">業務也能當天交付 AI 工具</div>
+                  <div class="hf-sub">Vibe Coding 讓非工程師描述需求，AI 生成應用，IT 審核後立即部署</div>
                 </div>
               </div>
             </div>
             <div class="hero-actions">
               <a class="button primary" href="#contact">預約 OrientAI Demo -></a>
               <a class="button secondary" href="#showcase">了解解決方案</a>
-            </div>
-          </div>
-
-          <div class="hero-product-mock" aria-label="OrientAI 功能展示">
-            <div class="hpm-top">
-              <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
-              <span class="hpm-title">OrientAI Workspace</span>
-              <span class="hpm-badge">Enterprise</span>
-            </div>
-            <div class="hpm-body">
-              <div class="hpm-feature teal">
-                <div class="hpmf-icon teal-bg">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a596" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div class="hpmf-content">
-                  <div class="hpmf-title">安全可控</div>
-                  <div class="hpmf-desc">RBAC 角色授權 · 工具調用審計 · Token 配額</div>
-                  <span class="hpmf-status active">✓ 企業治理已啟用</span>
-                </div>
-              </div>
-              <div class="hpm-feature violet">
-                <div class="hpmf-icon violet-bg">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5d48d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                </div>
-                <div class="hpmf-content">
-                  <div class="hpmf-title">知識 AI Agent</div>
-                  <div class="hpmf-desc">拖拉文件 → 自動建立索引 → 問答並引用來源</div>
-                  <span class="hpmf-status active">✓ 3 個知識庫已啟用</span>
-                </div>
-              </div>
-              <div class="hpm-feature amber">
-                <div class="hpmf-icon amber-bg">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c27c00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </div>
-                <div class="hpmf-content">
-                  <div class="hpmf-title">Vibe Coding</div>
-                  <div class="hpmf-desc">自然語言 → 工具生成 → IT 審核部署，當天可用</div>
-                  <span class="hpmf-status pending">⏳ 等待 IT 核准</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
