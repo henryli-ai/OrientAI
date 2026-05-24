@@ -1431,7 +1431,7 @@
         }
 
         h1 {
-          font-size: 48px;
+          font-size: 38px;
         }
 
         .hero-inner,
@@ -1439,6 +1439,15 @@
         .proof-strip .section-inner,
         .cta-inner {
           grid-template-columns: 1fr;
+        }
+
+        .hero-logo-col {
+          padding: 0;
+        }
+
+        .hero-logo-col img {
+          width: min(260px, 55%);
+          margin: 0 auto;
         }
 
         .product-stage {
@@ -1479,7 +1488,48 @@
         }
 
         .hero {
-          padding: 30px 0 22px;
+          padding: 40px 0 36px;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .hero-logo-col {
+          padding: 0;
+        }
+
+        .hero-logo-col img {
+          width: min(220px, 55%);
+          margin: 0 auto;
+        }
+
+        .hero-features {
+          gap: 16px;
+          margin-top: 20px;
+        }
+
+        .hf-icon-wrap {
+          width: 40px;
+          height: 40px;
+        }
+
+        .hf-title {
+          font-size: 16px;
+        }
+
+        .hf-sub {
+          font-size: 13px;
+        }
+
+        .hero-actions {
+          margin-top: 24px;
+          flex-direction: column;
+        }
+
+        .hero-actions .button {
+          text-align: center;
         }
 
         .hero-inner,
@@ -1490,17 +1540,25 @@
         }
 
         h1 {
-          font-size: 34px;
+          font-size: 32px;
         }
 
         .hero p,
         .section-head p,
         .cta p {
-          font-size: 16px;
+          font-size: 15px;
         }
 
         h2 {
-          font-size: 30px;
+          font-size: 26px;
+        }
+
+        h3 {
+          font-size: 18px;
+        }
+
+        section {
+          padding: 48px 0;
         }
 
         .video-section-layout { grid-template-columns: 1fr; }
@@ -1539,11 +1597,14 @@
         .showcase-row,
         .showcase-row.reverse {
           grid-template-columns: 1fr;
-          gap: 24px;
-          padding: 36px 0;
+          gap: 20px;
+          padding: 32px 0;
         }
+
         .showcase-row.reverse .showcase-gif,
         .showcase-row.reverse .showcase-text { order: unset; }
+
+        .showcase-text h3 { font-size: 20px; }
 
         .console-body {
           grid-template-columns: 1fr;
@@ -1579,20 +1640,24 @@
           min-width: 780px;
         }
 
-        .hero-inner {
+        .section-head {
+          margin-bottom: 24px;
+        }
+
+        .server-grid,
+        .service-grid {
           grid-template-columns: 1fr;
         }
 
-        .hero-logo-col {
-          padding: 16px 0 0;
+        .cta-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
         }
 
-        .hero-logo-col img {
-          width: min(200px, 60%);
-        }
-
-        .hero-features {
-          gap: 10px;
+        .cta .button {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
         }
       }
     </style>
