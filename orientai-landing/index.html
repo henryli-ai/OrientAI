@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>if (location.hash && location.hash !== '#top') history.replaceState(null, '', location.pathname + location.search);</script>
     <title>OrientAI + AI Server | TPIsoftware</title>
     <meta
       name="description"
@@ -2187,10 +2188,6 @@
     </div>
 
     <script>
-      /* Prevent browser from restoring scroll position on page load */
-      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-      window.scrollTo(0, 0);
-
       /* Product tabs */
       (function () {
         var tabs = document.querySelectorAll('.product-tab');
