@@ -5,3 +5,4 @@
 *.pdf
 *.docx
 *.xlsx
+!orientai-landing/digiai-studio-demo-web.mp4

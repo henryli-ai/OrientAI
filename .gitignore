@@ -2,6 +2,7 @@
 *.mp4
 *.mov
 *.avi
+!orientai-landing/digiai-studio-demo-web.mp4
 
 # Claude 工具暫存
 .claude/
@@ -13,3 +14,5 @@ Thumbs.db
 
 # Adobe 暫存
 ~$*
+
+.vercel
