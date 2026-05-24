@@ -77,7 +77,7 @@
 
       .nav {
         width: min(1180px, calc(100% - 40px));
-        min-height: 72px;
+        min-height: 84px;
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -112,14 +112,28 @@
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 32px;
         color: #3f4656;
-        font-size: 15px;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 800;
       }
 
       .nav-links a {
         white-space: nowrap;
+        padding-bottom: 3px;
+        border-bottom: 2px solid transparent;
+        transition: color 160ms ease, border-color 160ms ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--violet-dark);
+        border-bottom-color: var(--violet-dark);
+      }
+
+      .nav-links a.external::after {
+        content: " ↗";
+        font-size: 13px;
+        opacity: 0.6;
       }
 
       .nav-actions {
@@ -1272,15 +1286,11 @@
           <img src="./orientai-logo.png" alt="OrientAI" style="width:108px;height:auto;" />
         </a>
         <div class="nav-links" aria-label="頁面章節">
-          <a href="#why">AI 安全</a>
-          <a href="#marketplace">Agent 市集</a>
-          <a href="#studio">產品影片</a>
-          <a href="#server">AI Server</a>
-          <a href="#services">專業服務</a>
+          <a href="#marketplace">OrientAI 解決方案</a>
+          <a href="https://aisoportal.com/" target="_blank" rel="noopener" class="external">AI Server 優勢</a>
           <a href="#contact">預約諮詢</a>
         </div>
         <div class="nav-actions">
-          <a class="button secondary" href="#studio">查看影片</a>
           <a class="button primary" href="#contact">預約 Demo -></a>
         </div>
       </nav>
@@ -1300,7 +1310,7 @@
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#contact">預約 OrientAI Demo -></a>
-              <a class="button secondary" href="#studio">觀看產品影片</a>
+              <a class="button secondary" href="#marketplace">了解解決方案</a>
             </div>
             <div class="micro-proof" aria-label="OrientAI 核心價值">
               <div>
