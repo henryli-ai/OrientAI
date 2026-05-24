@@ -1,0 +1,1815 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OrientAI + AI Server | TPIsoftware</title>
+    <meta
+      name="description"
+      content="OrientAI 是 TPIsoftware 為企業打造的 Agentic AI 平台，搭配 AI Server、企業權限控管、Agent 市集、知識庫助手與 Vibe coding，讓企業安全啟用 AI Agent。"
+    />
+    <style>
+      :root {
+        --ink: #252832;
+        --muted: #667085;
+        --line: #d9e0ea;
+        --soft: #f5f7fb;
+        --white: #ffffff;
+        --violet: #8b74ff;
+        --violet-dark: #5d48d8;
+        --blue: #2a67d8;
+        --teal: #16a596;
+        --mint: #dff8f4;
+        --amber: #ffba49;
+        --coral: #ff735c;
+        --green: #2e9e62;
+        --shadow: 0 24px 70px rgba(25, 33, 61, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--white);
+        font-family:
+          "Noto Sans TC",
+          "Microsoft JhengHei",
+          "PingFang TC",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      video {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        border-bottom: 1px solid rgba(217, 224, 234, 0.86);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav {
+        width: min(1180px, calc(100% - 40px));
+        min-height: 72px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 166px;
+        height: auto;
+      }
+
+      .brand-mark {
+        min-width: 1px;
+        height: 28px;
+        border-left: 1px solid var(--line);
+      }
+
+      .product-name {
+        font-size: 17px;
+        font-weight: 800;
+        color: var(--violet-dark);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color: #3f4656;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .button {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 7px;
+        padding: 10px 16px;
+        border: 1px solid transparent;
+        font-weight: 800;
+        font-size: 15px;
+        cursor: pointer;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        color: var(--white);
+        background: var(--violet-dark);
+        box-shadow: 0 12px 28px rgba(93, 72, 216, 0.24);
+      }
+
+      .button.secondary {
+        color: var(--ink);
+        background: var(--white);
+        border-color: var(--line);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: auto;
+        padding: 44px 0 26px;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 48%, rgba(245, 247, 251, 0.9) 100%),
+          radial-gradient(circle at 83% 28%, rgba(22, 165, 150, 0.22), transparent 28%),
+          radial-gradient(circle at 74% 85%, rgba(255, 186, 73, 0.2), transparent 32%),
+          linear-gradient(135deg, #f9fbff 0%, #edf4ff 100%);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -8%;
+        top: 0;
+        width: 52%;
+        height: 100%;
+        background-image:
+          linear-gradient(rgba(42, 103, 216, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(42, 103, 216, 0.08) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: linear-gradient(90deg, transparent, #000 25%, #000 84%, transparent);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.94fr 1.06fr;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .eyebrow-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 8px 12px;
+        border: 1px solid rgba(139, 116, 255, 0.28);
+        border-radius: 999px;
+        color: var(--violet-dark);
+        background: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: 52px;
+        line-height: 1.12;
+        font-weight: 950;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 670px;
+        margin: 18px 0 0;
+        color: #4c5669;
+        font-size: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .micro-proof {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        max-width: 680px;
+        margin-top: 24px;
+      }
+
+      .micro-proof div {
+        min-height: 78px;
+        padding: 14px;
+        border: 1px solid rgba(217, 224, 234, 0.9);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .micro-proof strong {
+        display: block;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      .micro-proof span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .product-stage {
+        position: relative;
+        min-height: 520px;
+      }
+
+      .demo-window {
+        position: absolute;
+        inset: 0 0 auto auto;
+        width: min(680px, 100%);
+        overflow: hidden;
+        border: 1px solid rgba(91, 72, 216, 0.2);
+        border-radius: 8px;
+        background: #ffffff;
+        box-shadow: var(--shadow);
+      }
+
+      .demo-window-top {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 18px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(90deg, #ffffff, #f4f7ff);
+      }
+
+      .demo-title {
+        color: #384154;
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .demo-video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #111827;
+      }
+
+      .demo-caption {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: center;
+        padding: 16px 18px;
+        border-top: 1px solid var(--line);
+        background: #fbfdff;
+      }
+
+      .demo-caption strong {
+        display: block;
+        font-size: 16px;
+      }
+
+      .demo-caption span {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .demo-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .demo-tags span {
+        padding: 6px 9px;
+        border-radius: 999px;
+        color: var(--violet-dark);
+        background: #ece8ff;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .console {
+        position: absolute;
+        inset: 0 0 auto auto;
+        width: min(660px, 100%);
+        border: 1px solid rgba(91, 72, 216, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .console-top {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(90deg, #ffffff, #f4f7ff);
+      }
+
+      .traffic {
+        display: flex;
+        gap: 8px;
+      }
+
+      .traffic i {
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        background: var(--line);
+      }
+
+      .traffic i:nth-child(1) {
+        background: var(--coral);
+      }
+
+      .traffic i:nth-child(2) {
+        background: var(--amber);
+      }
+
+      .traffic i:nth-child(3) {
+        background: var(--teal);
+      }
+
+      .console-label {
+        color: #384154;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .console-body {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        min-height: 420px;
+      }
+
+      .side {
+        padding: 18px;
+        border-right: 1px solid var(--line);
+        background: #f9fbff;
+      }
+
+      .side-title {
+        margin-bottom: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .side-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 44px;
+        margin-bottom: 8px;
+        padding: 10px;
+        border-radius: 7px;
+        color: #3d4659;
+        background: #ffffff;
+        border: 1px solid #e8edf5;
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      .side-item.active {
+        color: var(--violet-dark);
+        border-color: rgba(139, 116, 255, 0.38);
+        background: #f3f0ff;
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: var(--teal);
+        flex: 0 0 auto;
+      }
+
+      .workspace {
+        padding: 20px;
+        background:
+          linear-gradient(#ffffff 0 0) padding-box,
+          linear-gradient(135deg, rgba(139, 116, 255, 0.11), rgba(22, 165, 150, 0.1)) border-box;
+      }
+
+      .flow-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .node {
+        min-height: 106px;
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #e0e7f2;
+        background: #ffffff;
+      }
+
+      .node strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .node span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .node:nth-child(1) {
+        border-top: 5px solid var(--violet);
+      }
+
+      .node:nth-child(2) {
+        border-top: 5px solid var(--teal);
+      }
+
+      .node:nth-child(3) {
+        border-top: 5px solid var(--amber);
+      }
+
+      .report-panel {
+        margin-top: 16px;
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid #e0e7f2;
+        background: #fbfdff;
+      }
+
+      .report-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
+      .report-title {
+        font-size: 16px;
+        font-weight: 950;
+      }
+
+      .status-pill {
+        flex: 0 0 auto;
+        border-radius: 999px;
+        padding: 6px 10px;
+        color: var(--green);
+        background: #e9f7ef;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .bar {
+        height: 10px;
+        margin: 10px 0;
+        border-radius: 999px;
+        background: #e4eaf4;
+        overflow: hidden;
+      }
+
+      .bar span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--violet), var(--teal));
+      }
+
+      .bar:nth-child(2) span {
+        width: 72%;
+      }
+
+      .bar:nth-child(3) span {
+        width: 88%;
+      }
+
+      .bar:nth-child(4) span {
+        width: 52%;
+      }
+
+      .floating-chip {
+        position: absolute;
+        right: 30px;
+        bottom: 6px;
+        width: 292px;
+        padding: 18px;
+        border-radius: 8px;
+        color: #ffffff;
+        background: #263247;
+        box-shadow: 0 24px 60px rgba(18, 24, 38, 0.25);
+      }
+
+      .floating-chip strong {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .floating-chip span {
+        display: block;
+        color: #cdd7eb;
+        font-size: 13px;
+      }
+
+      section {
+        padding: 88px 0;
+      }
+
+      .section-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .section-head {
+        max-width: 790px;
+        margin-bottom: 38px;
+      }
+
+      .section-kicker {
+        margin-bottom: 10px;
+        color: var(--violet-dark);
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 40px;
+        line-height: 1.18;
+        font-weight: 950;
+      }
+
+      .section-head p {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .proof-strip {
+        padding: 30px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: #ffffff;
+      }
+
+      .proof-strip .section-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 2fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .proof-strip strong {
+        display: block;
+        font-size: 23px;
+        line-height: 1.35;
+      }
+
+      .industry-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .industry-list span {
+        padding: 9px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: #4a5568;
+        background: #f9fbff;
+        font-size: 14px;
+        font-weight: 850;
+      }
+
+      .server-band {
+        background: #1f2636;
+        color: #ffffff;
+      }
+
+      .server-band .section-kicker,
+      .server-band h2,
+      .server-band .section-head p {
+        color: #ffffff;
+      }
+
+      .server-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .server-card {
+        min-height: 100%;
+        padding: 24px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .server-card strong {
+        display: block;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .server-card span {
+        display: block;
+        color: #d7deee;
+      }
+
+      .marketplace-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .marketplace-step {
+        min-height: 128px;
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid #dce4f0;
+        background: #ffffff;
+      }
+
+      .marketplace-step span {
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        border-radius: 999px;
+        color: #ffffff;
+        background: var(--violet-dark);
+        font-size: 13px;
+        font-weight: 950;
+      }
+
+      .marketplace-step strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 17px;
+      }
+
+      .marketplace-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .value-chain {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .value-layer {
+        min-height: 142px;
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: #ffffff;
+      }
+
+      .value-layer span {
+        display: block;
+        color: var(--violet-dark);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .value-layer strong {
+        display: block;
+        margin: 8px 0;
+        font-size: 18px;
+      }
+
+      .value-layer p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .pain-grid,
+      .success-grid,
+      .advantage-grid,
+      .usecase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .pain-card,
+      .success-card,
+      .advantage-card,
+      .usecase-card,
+      .deploy-card,
+      .service-card {
+        min-height: 100%;
+        padding: 24px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: #ffffff;
+      }
+
+      .pain-card {
+        border-color: #f0cac3;
+        background: #fff8f7;
+      }
+
+      .pain-card h3,
+      .success-card h3,
+      .advantage-card h3,
+      .usecase-card h3,
+      .deploy-card h3,
+      .service-card h3 {
+        margin: 0 0 10px;
+        font-size: 21px;
+        line-height: 1.3;
+      }
+
+      .pain-card p,
+      .success-card p,
+      .advantage-card p,
+      .usecase-card p,
+      .deploy-card p,
+      .service-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .success-band {
+        background: var(--soft);
+      }
+
+      .success-card {
+        border-top: 5px solid var(--teal);
+      }
+
+      .advantage-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .advantage-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--violet), var(--teal), var(--amber));
+      }
+
+      .feature-list {
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .feature-list li {
+        position: relative;
+        min-height: 28px;
+        padding-left: 20px;
+        color: #4b5568;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .feature-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--teal);
+      }
+
+      .product-section {
+        background: #ffffff;
+      }
+
+      .product-layout {
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: 26px;
+        align-items: start;
+      }
+
+      .product-menu {
+        display: grid;
+        gap: 10px;
+      }
+
+      .product-tab {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: #ffffff;
+        font-weight: 900;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .product-tab.active {
+        color: var(--white);
+        border-color: var(--violet-dark);
+        background: var(--violet-dark);
+      }
+
+      .product-detail {
+        min-height: 420px;
+        padding: 28px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: #f9fbff;
+      }
+
+      .detail-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .detail-head h3 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .detail-tag {
+        flex: 0 0 auto;
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: var(--violet-dark);
+        background: #ece8ff;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .workflow-step {
+        min-height: 118px;
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #dce4f0;
+        background: #ffffff;
+      }
+
+      .workflow-step span {
+        display: block;
+        color: var(--violet-dark);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .workflow-step strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .comparison {
+        background: #1f2636;
+        color: #ffffff;
+      }
+
+      .comparison .section-kicker,
+      .comparison h2,
+      .comparison .section-head p {
+        color: #ffffff;
+      }
+
+      .matrix {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .matrix-row {
+        display: grid;
+        grid-template-columns: 1.2fr repeat(4, 1fr);
+        min-height: 58px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .matrix-row:last-child {
+        border-bottom: 0;
+      }
+
+      .matrix-row div {
+        display: flex;
+        align-items: center;
+        padding: 14px 16px;
+        border-right: 1px solid rgba(255, 255, 255, 0.14);
+        color: #d7deee;
+        font-weight: 800;
+      }
+
+      .matrix-row div:last-child {
+        border-right: 0;
+      }
+
+      .matrix-row.head div {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 14px;
+      }
+
+      .matrix-row .strong {
+        color: #ffffff;
+      }
+
+      .matrix-row .yes {
+        color: #7fe0cf;
+      }
+
+      .matrix-row .partial {
+        color: #ffd077;
+      }
+
+      .matrix-row .no {
+        color: #ff9b8d;
+      }
+
+      .deploy-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .deploy-card.recommended {
+        border-color: rgba(22, 165, 150, 0.48);
+        background: #f0fffc;
+      }
+
+      .service-section {
+        background: var(--soft);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .usecase-card {
+        background: #ffffff;
+      }
+
+      .cta {
+        padding: 92px 0;
+        color: #ffffff;
+        background:
+          linear-gradient(90deg, rgba(31, 38, 54, 0.98), rgba(38, 50, 71, 0.92)),
+          linear-gradient(135deg, var(--violet-dark), var(--teal));
+      }
+
+      .cta-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .cta h2 {
+        color: #ffffff;
+      }
+
+      .cta p {
+        max-width: 720px;
+        margin: 16px 0 0;
+        color: #d9e3f6;
+        font-size: 18px;
+      }
+
+      .cta .button.primary {
+        color: var(--ink);
+        background: #ffffff;
+        box-shadow: none;
+      }
+
+      footer {
+        padding: 28px 0;
+        color: #6c7484;
+        background: #ffffff;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+
+      /* Tab panel switching */
+      .product-detail { display: none; }
+      .product-detail.active {
+        display: block;
+        animation: tab-in 0.22s ease;
+      }
+      @keyframes tab-in {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Prevent orphan words */
+      h1, h2, h3 { text-wrap: balance; }
+      p { text-wrap: pretty; }
+
+      @media (max-width: 1040px) {
+        .nav-links {
+          display: none;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .hero-inner,
+        .product-layout,
+        .proof-strip .section-inner,
+        .cta-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .product-stage {
+          min-height: 520px;
+        }
+
+        .console {
+          position: relative;
+          inset: auto;
+          margin: 0 auto;
+        }
+
+        .floating-chip {
+          right: 8px;
+          bottom: 0;
+        }
+
+        .server-grid,
+        .service-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          width: min(100% - 28px, 1180px);
+          min-height: 64px;
+        }
+
+        .brand img {
+          width: 136px;
+        }
+
+        .product-name,
+        .brand-mark,
+        .nav-actions .secondary {
+          display: none;
+        }
+
+        .hero {
+          padding: 30px 0 22px;
+        }
+
+        .hero-inner,
+        .section-inner,
+        .cta-inner,
+        .footer-inner {
+          width: min(100% - 28px, 1180px);
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        .hero p,
+        .section-head p,
+        .cta p {
+          font-size: 16px;
+        }
+
+        h2 {
+          font-size: 30px;
+        }
+
+        .micro-proof {
+          display: none;
+        }
+
+        .micro-proof,
+        .server-grid,
+        .marketplace-steps,
+        .value-chain,
+        .pain-grid,
+        .success-grid,
+        .advantage-grid,
+        .usecase-grid,
+        .deploy-grid,
+        .workflow,
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .product-stage {
+          min-height: auto;
+        }
+
+        .demo-window {
+          position: relative;
+          inset: auto;
+          width: 100%;
+        }
+
+        .demo-caption {
+          grid-template-columns: 1fr;
+        }
+
+        .demo-tags {
+          justify-content: flex-start;
+        }
+
+        .console-body {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .side {
+          display: none;
+        }
+
+        .flow-row {
+          grid-template-columns: 1fr;
+        }
+
+        .floating-chip {
+          display: none;
+        }
+
+        .workspace {
+          padding: 12px;
+        }
+
+        .report-panel {
+          margin-top: 10px;
+          padding: 14px;
+        }
+
+        .matrix {
+          overflow-x: auto;
+        }
+
+        .matrix-row {
+          min-width: 780px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" aria-label="主選單">
+      <nav class="nav">
+        <a class="brand" href="#top" aria-label="TPIsoftware OrientAI">
+          <img src="./tpi_logo_horizontal_color.png" alt="TPIsoftware" />
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="product-name">OrientAI</span>
+        </a>
+        <div class="nav-links" aria-label="頁面章節">
+          <a href="#why">AI 安全</a>
+          <a href="#marketplace">Agent 市集</a>
+          <a href="#studio">產品影片</a>
+          <a href="#server">AI Server</a>
+          <a href="#services">專業服務</a>
+          <a href="#contact">預約諮詢</a>
+        </div>
+        <div class="nav-actions">
+          <a class="button secondary" href="#studio">查看影片</a>
+          <a class="button primary" href="#contact">預約 Demo -></a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow-row">
+              <div class="hero-kicker">OrientAI + AI Server</div>
+            </div>
+            <h1 id="hero-title">讓企業安全啟用 AI Agent 的工作平台</h1>
+            <p>
+              OrientAI 以 digiRunner 的企業權限控管與 API 治理經驗為核心，搭配 AI Server 的私有部署底座，讓企業能從 Agent 市集快速啟用智慧體，打造知識庫助手、報告流程與 Vibe coding 工具。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#contact">預約 OrientAI Demo -></a>
+              <a class="button secondary" href="#studio">觀看產品影片</a>
+            </div>
+            <div class="micro-proof" aria-label="OrientAI 核心價值">
+              <div>
+                <strong>Secure</strong>
+                <span>企業權限、審核、日誌與 Token 成本治理</span>
+              </div>
+              <div>
+                <strong>Marketplace</strong>
+                <span>發現、試用、申請、核准、啟用 AI Agent</span>
+              </div>
+              <div>
+                <strong>AI Server</strong>
+                <span>資料主權、模型推論與地端部署底座</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="studio" class="product-stage" aria-label="OrientAI 產品影片">
+            <div class="demo-window">
+              <div class="demo-window-top">
+                <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="demo-title">digiAI Studio / OrientAI Demo</div>
+              </div>
+              <video class="demo-video" src="./digiai-studio-demo.mp4" controls muted playsinline preload="metadata"></video>
+              <div class="demo-caption">
+                <div>
+                  <strong>知識庫助手與 Vibe coding 平台</strong>
+                  <span>把文件、SOP、API 與企業工具組成可互動、可產出、可治理的 Agent 工作台。</span>
+                </div>
+                <div class="demo-tags" aria-label="Demo 重點">
+                  <span>Knowledge Agent</span>
+                  <span>Tool Builder</span>
+                  <span>No-code</span>
+                </div>
+              </div>
+            </div>
+            <div class="floating-chip">
+              <strong>OrientAI 是使用者的 AI 工作平台；AI Server 是企業可控的模型與資料底座。</strong>
+              <span>前台快速啟用 Agent，後台統一權限、成本、審計與系統串接。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="OrientAI 產品主軸">
+        <div class="section-inner">
+          <strong>OrientAI 主打企業 Agent 工作平台，搭配 AI Server 形成「安全治理、快速啟用、私有部署」的一體化 AI 落地方案。</strong>
+          <div class="industry-list">
+            <span>企業權限控管</span>
+            <span>Agent 市集</span>
+            <span>知識庫助手</span>
+            <span>Vibe coding</span>
+            <span>AI Server</span>
+            <span>API / MCP 串接</span>
+            <span>SI 導入服務</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="server" class="server-band">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">AI SERVER</div>
+            <h2>把 AI Agent 跑在企業可掌控的基礎設施上。</h2>
+            <p>參考 AISO 的主權 AI 思路，AI Server 讓企業降低對外部雲端的依賴，把模型推論、資料存取、知識庫與 Agent 執行環境放回可控範圍。</p>
+          </div>
+          <div class="server-grid">
+            <article class="server-card">
+              <strong>資料主權</strong>
+              <span>敏感資料、企業文件與任務紀錄保留在企業指定環境，支援私有雲與地端部署。</span>
+            </article>
+            <article class="server-card">
+              <strong>成本可控</strong>
+              <span>以部門、專案、Agent 設定 Token 預算與配額，避免 Shadow AI 與重複消耗。</span>
+            </article>
+            <article class="server-card">
+              <strong>即插即用</strong>
+              <span>搭配 OrientAI 預建 Agent、知識庫與工具流程，縮短從 PoC 到正式上線的距離。</span>
+            </article>
+            <article class="server-card">
+              <strong>彈性模型</strong>
+              <span>依任務選擇雲端模型、地端模型或混合路由，平衡效能、成本與資安要求。</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="why">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">WHY ENTERPRISE AGENTS NEED GOVERNANCE</div>
+            <h2>企業真正需要的不是更多 AI 工具，而是能安全控管 AI Agent 的作業系統。</h2>
+            <p>產品主管提供的 Marketplace 架構很清楚：AI Gateway 2.0 不再只是模型通道，而是 Agent、工具、權限、成本與審計的控制塔。</p>
+          </div>
+          <div class="pain-grid">
+            <article class="pain-card">
+              <h3>Shadow AI 與資源浪費</h3>
+              <p>員工各自使用未審核工具，企業看不到哪些 Agent 被建立、哪些資料被使用、哪些成本正在發生。</p>
+            </article>
+            <article class="pain-card">
+              <h3>資料外洩與權限失控</h3>
+              <p>AI Agent 一旦具備讀寫資料庫、呼叫 API 與操作系統的能力，就必須有統一授權、審批、遮罩與稽核。</p>
+            </article>
+            <article class="pain-card">
+              <h3>業務單位難以自助啟用</h3>
+              <p>人資、財務、客服、行銷與營運團隊知道問題在哪，卻缺少能安全領用 Agent 與工具的友善入口。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="success-band">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">ORIENTAI PRODUCT PILLARS</div>
+            <h2>OrientAI 的三個主打特色</h2>
+            <p>新版首頁把產品訊息收斂成三件事：企業安全、Agent 市集，以及能被看見的知識庫助手與 Vibe coding 體驗。</p>
+          </div>
+          <div class="success-grid">
+            <article class="success-card">
+              <h3>企業權限控管與安全</h3>
+              <p>精煉 digiRunner 在 API 管理、授權、遮罩、日誌與資源治理的經驗，作為企業安全使用 AI Agent 的基石。</p>
+            </article>
+            <article class="success-card">
+              <h3>Agent 市集</h3>
+              <p>把 AI Agent 變成可搜尋、可試用、可申請、可核准的服務貨架，讓使用者快速啟用智慧體完成工作。</p>
+            </article>
+            <article class="success-card">
+              <h3>知識庫助手與 Vibe coding</h3>
+              <p>讓業務單位透過可視化介面組裝知識、工具與輸出格式，將需求快速轉成可用的 Agent 或小工具。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="marketplace" class="product-section">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">AGENT MARKETPLACE</div>
+            <h2>把複雜的 AI 技術變成企業內部可領用的服務貨架。</h2>
+            <p>使用者不必理解 API、MCP 或模型細節，只需要在市集中找到合適的 Agent，送出申請，通過核准後就能在受控環境執行任務。</p>
+          </div>
+          <div class="product-layout">
+            <div class="product-menu" aria-label="產品模組">
+              <div class="product-tab active" data-tab="tab-marketplace">Agent Marketplace <span>-></span></div>
+              <div class="product-tab" data-tab="tab-approval">Access Approval <span>-></span></div>
+              <div class="product-tab" data-tab="tab-mcp">MCP Tool Gateway <span>-></span></div>
+              <div class="product-tab" data-tab="tab-token">Token Budget <span>-></span></div>
+              <div class="product-tab" data-tab="tab-audit">Audit Trail <span>-></span></div>
+            </div>
+            <div>
+              <article class="product-detail active" id="tab-marketplace">
+                <div class="detail-head">
+                  <h3>發現、試用、申請、核准、啟用</h3>
+                  <span class="detail-tag">Controlled Self-service</span>
+                </div>
+                <p>OrientAI Agent 市集把底層工具、資料權限、模型資源與使用成本封裝成清楚的服務卡片。使用者能快速看懂 Agent 能做什麼；IT 與主管則保留核准、配額、追蹤與回收的完整控制權，任何啟用都有跡可查。</p>
+                <div class="workflow">
+                  <div class="workflow-step"><span>01</span><strong>瀏覽圖卡式 Agent 服務</strong></div>
+                  <div class="workflow-step"><span>02</span><strong>確認資料與工具權限</strong></div>
+                  <div class="workflow-step"><span>03</span><strong>主管核准並核發 Token</strong></div>
+                  <div class="workflow-step"><span>04</span><strong>安全執行並留存日誌</strong></div>
+                </div>
+                <ul class="feature-list">
+                  <li>圖卡式服務瀏覽與分類篩選</li>
+                  <li>Agent 能力與資料權限透明說明</li>
+                  <li>一站式申請、核准、啟用流程</li>
+                  <li>停用後自動回收資源與 Token 配額</li>
+                </ul>
+              </article>
+
+              <article class="product-detail" id="tab-approval">
+                <div class="detail-head">
+                  <h3>申請與核准的完整受控閉環</h3>
+                  <span class="detail-tag">Zero-trust Access</span>
+                </div>
+                <p>企業 AI Agent 的啟用需要明確的授權機制，不能讓任何人自由取用敏感工具與資料。Access Approval 提供標準化申請表單、多層核准鏈與自動到期回收，讓使用者能自助申請、主管有效把關，每筆授權都有完整版本紀錄可供稽核，不留授權黑洞。</p>
+                <div class="workflow">
+                  <div class="workflow-step"><span>01</span><strong>使用者提交 Agent 申請單</strong></div>
+                  <div class="workflow-step"><span>02</span><strong>政策引擎自動初篩</strong></div>
+                  <div class="workflow-step"><span>03</span><strong>主管人工核准或退回</strong></div>
+                  <div class="workflow-step"><span>04</span><strong>啟用並設定有效期限與配額</strong></div>
+                </div>
+                <ul class="feature-list">
+                  <li>角色與部門層級動態授權</li>
+                  <li>申請單版本與審核歷程完整記錄</li>
+                  <li>到期自動回收存取權限</li>
+                  <li>支援多層核准鏈與代理審核</li>
+                </ul>
+              </article>
+
+              <article class="product-detail" id="tab-mcp">
+                <div class="detail-head">
+                  <h3>企業工具封裝，讓 Agent 安全執行任務</h3>
+                  <span class="detail-tag">Tool Governance</span>
+                </div>
+                <p>MCP Tool Gateway 把 ERP、CRM、資料庫、API 與外部 SaaS 封裝成受控服務工具。Agent 呼叫工具時，系統自動驗證授權、記錄調用參數、執行輸出遮罩，並在每次調用後留下完整稽核軌跡，讓企業工具串接同時兼顧效率與安全合規。</p>
+                <div class="workflow">
+                  <div class="workflow-step"><span>01</span><strong>工具上架與分類管理</strong></div>
+                  <div class="workflow-step"><span>02</span><strong>設定工具層級存取政策</strong></div>
+                  <div class="workflow-step"><span>03</span><strong>Agent 呼叫時即時驗證授權</strong></div>
+                  <div class="workflow-step"><span>04</span><strong>留存完整調用參數紀錄</strong></div>
+                </div>
+                <ul class="feature-list">
+                  <li>MCP 標準協議與自訂工具均支援</li>
+                  <li>API、Lambda、SaaS 統一串接入口</li>
+                  <li>敏感欄位自動遮罩與過濾規則</li>
+                  <li>工具版本管理與快速回溯能力</li>
+                </ul>
+              </article>
+
+              <article class="product-detail" id="tab-token">
+                <div class="detail-head">
+                  <h3>部門、專案與 Agent 分層成本治理</h3>
+                  <span class="detail-tag">Cost Visibility</span>
+                </div>
+                <p>Token Budget 讓 IT 與財務可依部門、專案或個別 Agent 設定 Token 配額。系統即時監控消耗、觸發告警並自動限流，讓企業在 AI 使用量快速成長時仍能清楚掌握成本分佈，有效避免 Shadow AI 帶來的隱性支出與資源浪費。</p>
+                <div class="workflow">
+                  <div class="workflow-step"><span>01</span><strong>依部門與專案設定配額</strong></div>
+                  <div class="workflow-step"><span>02</span><strong>即時監控 Token 消耗</strong></div>
+                  <div class="workflow-step"><span>03</span><strong>觸發告警或自動限流</strong></div>
+                  <div class="workflow-step"><span>04</span><strong>定期產生成本分析報告</strong></div>
+                </div>
+                <ul class="feature-list">
+                  <li>多維度配額設定：部門、專案、Agent 三層</li>
+                  <li>即時消耗儀表板與使用趨勢圖</li>
+                  <li>可自訂閾值告警與自動限流規則</li>
+                  <li>月度成本明細一鍵匯出</li>
+                </ul>
+              </article>
+
+              <article class="product-detail" id="tab-audit">
+                <div class="detail-head">
+                  <h3>完整 Agent 工具調用與決策紀錄</h3>
+                  <span class="detail-tag">Compliance Ready</span>
+                </div>
+                <p>Audit Trail 完整記錄每一次 Agent 工具調用的輸入參數、模型決策依據與輸出結果，並提供關鍵字搜尋與時間軸過濾功能。稽核人員可快速定位異常操作，合規報告可一鍵匯出，滿足金融、法遵與公部門的資料治理與監管要求。</p>
+                <div class="workflow">
+                  <div class="workflow-step"><span>01</span><strong>自動記錄工具調用參數</strong></div>
+                  <div class="workflow-step"><span>02</span><strong>保存模型輸入與輸出全文</strong></div>
+                  <div class="workflow-step"><span>03</span><strong>關鍵字與時間軸搜尋</strong></div>
+                  <div class="workflow-step"><span>04</span><strong>匯出合規稽核報告</strong></div>
+                </div>
+                <ul class="feature-list">
+                  <li>不可篡改的完整調用紀錄保存</li>
+                  <li>異常行為即時偵測與告警機制</li>
+                  <li>跨 Agent 操作關聯追蹤與比對</li>
+                  <li>支援多種法規合規報告格式匯出</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+          <div class="marketplace-steps" aria-label="Agent 市集標準流程">
+            <article class="marketplace-step">
+              <span>1</span>
+              <strong>Find</strong>
+              <p>找到能完成工作任務的 Agent、Skill 或 MCP 工具。</p>
+            </article>
+            <article class="marketplace-step">
+              <span>2</span>
+              <strong>Match</strong>
+              <p>比對所需資料、權限、模型與 AI Server 資源。</p>
+            </article>
+            <article class="marketplace-step">
+              <span>3</span>
+              <strong>Approve</strong>
+              <p>主管或系統依政策核准，建立可追蹤的授權。</p>
+            </article>
+            <article class="marketplace-step">
+              <span>4</span>
+              <strong>Deploy</strong>
+              <p>Agent 在受控環境執行，留下成本、工具與審計紀錄。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">CORE ADVANTAGES</div>
+            <h2>企業級 Agentic AI 的價值鏈要能被全面納管。</h2>
+          </div>
+          <div class="advantage-grid">
+            <article class="advantage-card">
+              <h3>企業權限與安全</h3>
+              <p>從使用者、部門、Agent 到工具層級建立授權，搭配遮罩、審核與審計日誌，降低資料外洩風險。</p>
+              <ul class="feature-list">
+                <li>RBAC 與動態授權</li>
+                <li>高風險操作人工覆核</li>
+                <li>完整工具調用軌跡</li>
+              </ul>
+            </article>
+            <article class="advantage-card">
+              <h3>MCP 與企業系統連接</h3>
+              <p>把 ERP、CRM、資料庫、API 與外部 SaaS 封裝為受控工具，讓 Agent 不只回答，也能安全執行任務。</p>
+              <ul class="feature-list">
+                <li>MCP Tool Provider</li>
+                <li>API / Lambda / SaaS 串接</li>
+                <li>工具級權限與配額</li>
+              </ul>
+            </article>
+            <article class="advantage-card">
+              <h3>知識庫助手與 Vibe coding</h3>
+              <p>把知識檢索、SOP、Prompt、資料引用與小工具產生流程放進同一個工作台，讓業務需求快速成形。</p>
+              <ul class="feature-list">
+                <li>文件與知識庫 Agent</li>
+                <li>工具功能快速生成</li>
+                <li>報告與任務流程輸出</li>
+              </ul>
+            </article>
+          </div>
+          <div class="value-chain" aria-label="AI 價值鏈四層">
+            <article class="value-layer">
+              <span>Level 1</span>
+              <strong>LLM 模型</strong>
+              <p>推理、語言理解與模型路由，依任務選擇最合適的模型。</p>
+            </article>
+            <article class="value-layer">
+              <span>Level 2</span>
+              <strong>MCP 工具</strong>
+              <p>連接資料庫、API、ERP、文件庫與外部工具。</p>
+            </article>
+            <article class="value-layer">
+              <span>Level 3</span>
+              <strong>Skills</strong>
+              <p>封裝 SOP、Prompt、業務邏輯與合規規則。</p>
+            </article>
+            <article class="value-layer">
+              <span>Level 4</span>
+              <strong>AI Agent</strong>
+              <p>面向使用者完成跨工具、跨資料、跨流程任務。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="comparison">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">WHY ORIENTAI</div>
+            <h2>從傳統 AI 部署，升級到可治理的 Agent Marketplace。</h2>
+            <p>OrientAI 的差異不只在 Agent 數量，而是把權限、成本、審計、工具共享與 AI Server 資源放進同一個治理閉環。</p>
+          </div>
+          <div class="matrix" role="table" aria-label="OrientAI 比較表">
+            <div class="matrix-row head" role="row">
+              <div role="columnheader">能力</div>
+              <div role="columnheader">OrientAI</div>
+              <div role="columnheader">傳統 AI 部署</div>
+              <div role="columnheader">個人 AI 工具</div>
+              <div role="columnheader">單點知識庫</div>
+            </div>
+            <div class="matrix-row" role="row">
+              <div class="strong">權限管控</div>
+              <div class="yes">動態授權 + 審批</div>
+              <div class="partial">靜態 API Key</div>
+              <div class="no">個人自行管理</div>
+              <div class="partial">文件權限為主</div>
+            </div>
+            <div class="matrix-row" role="row">
+              <div class="strong">資源與成本</div>
+              <div class="yes">部門配額 + Token 預算</div>
+              <div class="partial">共用資源池</div>
+              <div class="no">難以控管</div>
+              <div class="partial">僅查詢成本</div>
+            </div>
+            <div class="matrix-row" role="row">
+              <div class="strong">安全審計</div>
+              <div class="yes">留存工具參數與回應</div>
+              <div class="partial">粗略 Call Log</div>
+              <div class="no">通常不可見</div>
+              <div class="partial">文件存取紀錄</div>
+            </div>
+            <div class="matrix-row" role="row">
+              <div class="strong">工具共享</div>
+              <div class="yes">Agent 市集化上架</div>
+              <div class="no">孤島式開發</div>
+              <div class="no">不支援</div>
+              <div class="partial">知識庫共享</div>
+            </div>
+            <div class="matrix-row" role="row">
+              <div class="strong">部署底座</div>
+              <div class="yes">搭配 AI Server</div>
+              <div class="partial">依專案配置</div>
+              <div class="no">外部雲端為主</div>
+              <div class="partial">視產品而定</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">DEPLOYMENT</div>
+            <h2>OrientAI 可以先快跑，也能逐步走向企業級 AI Server。</h2>
+          </div>
+          <div class="deploy-grid">
+            <article class="deploy-card">
+              <h3>部門試行</h3>
+              <p>先以知識庫助手、報告 Agent 或 Vibe coding 場景驗證效益，快速建立第一批成功案例。</p>
+            </article>
+            <article class="deploy-card recommended">
+              <h3>AI Server 專屬環境</h3>
+              <p>把模型推論、知識庫、Agent Runtime 與權限治理部署到企業可控環境，適合跨部門擴散。</p>
+            </article>
+            <article class="deploy-card">
+              <h3>混合雲與地端部署</h3>
+              <p>依資料敏感度與成本需求選擇地端、私有雲或雲端模型路由，兼顧效能與資料主權。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="service-section">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">PROFESSIONAL SERVICES</div>
+            <h2>產品、AI Server、SI 與教育訓練一起落地。</h2>
+          </div>
+          <div class="service-grid">
+            <article class="service-card">
+              <h3>企業 AI 藍圖顧問</h3>
+              <p>盤點流程、資料、權限與優先場景，規劃從 Agent 市集到 AI Server 的導入節奏。</p>
+            </article>
+            <article class="service-card">
+              <h3>專案開發與 SI</h3>
+              <p>承接 MCP 工具、API、資料庫、ERP、CRM、權限系統與既有流程整合。</p>
+            </article>
+            <article class="service-card">
+              <h3>講師培訓與工作坊</h3>
+              <p>從主管共識、AI 素養到 Agent 市集使用、知識庫助手與 Vibe coding 實作。</p>
+            </article>
+            <article class="service-card">
+              <h3>上線營運優化</h3>
+              <p>追蹤使用率、Token 成本、工具調用、知識品質與部門擴散，持續迭代成效。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">USE CASES</div>
+            <h2>從能被市集化、工具化、知識化的任務開始。</h2>
+          </div>
+          <div class="usecase-grid">
+            <article class="usecase-card">
+              <h3>知識庫助手</h3>
+              <p>將制度、SOP、產品資料與內部文件轉成可追溯引用的企業問答與任務助手。</p>
+            </article>
+            <article class="usecase-card">
+              <h3>Vibe coding 工具平台</h3>
+              <p>讓業務需求快速變成小工具、資料查詢介面或流程輔助功能，再由 IT 進行治理與整合。</p>
+            </article>
+            <article class="usecase-card">
+              <h3>部門 Agent 市集</h3>
+              <p>讓 HR、IT、財務、法遵、客服與業務能在同一入口領用被核准的 AI Agent。</p>
+            </article>
+            <article class="usecase-card">
+              <h3>IT Help Desk</h3>
+              <p>連接 IT 文件、服務台紀錄與系統狀態，提供排除步驟，必要時呼叫內部工具。</p>
+            </article>
+            <article class="usecase-card">
+              <h3>法遵與稽核報告</h3>
+              <p>整合法規、內規、過往查核紀錄與營運資料，自動產生摘要、風險點與佐證引用。</p>
+            </article>
+            <article class="usecase-card">
+              <h3>管理報告與營運摘要</h3>
+              <p>串接資料來源、知識庫與報告模板，讓週報、月報與主管摘要從人工彙整轉為受控生成。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="cta">
+        <div class="cta-inner">
+          <div>
+            <h2>準備把 OrientAI 與 AI Server 放進你的企業 AI 藍圖？</h2>
+            <p>
+              預約 Demo 與導入諮詢，TPIsoftware 將協助你盤點 Agent 市集、企業權限、知識庫助手、Vibe coding、AI Server 與系統整合路徑。
+            </p>
+          </div>
+          <a class="button primary" href="https://www.tpisoftware.com/contact-us">聯絡 TPIsoftware -></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>OrientAI by TPIsoftware</span>
+        <span>OrientAI | AI Server | Agent Marketplace | Knowledge Agent | Vibe Coding | Enterprise SI</span>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll('.product-tab');
+        var panels = document.querySelectorAll('.product-detail');
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            var id = this.dataset.tab;
+            tabs.forEach(function (t) { t.classList.remove('active'); });
+            panels.forEach(function (p) { p.classList.remove('active'); });
+            this.classList.add('active');
+            var target = document.getElementById(id);
+            if (target) target.classList.add('active');
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

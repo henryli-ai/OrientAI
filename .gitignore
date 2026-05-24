@@ -1,0 +1,15 @@
+# 大型影片檔（超過 GitHub 100MB 限制）
+*.mp4
+*.mov
+*.avi
+
+# Claude 工具暫存
+.claude/
+
+# macOS / Windows 系統檔
+.DS_Store
+desktop.ini
+Thumbs.db
+
+# Adobe 暫存
+~$*
