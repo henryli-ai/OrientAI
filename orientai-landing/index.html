@@ -1127,6 +1127,75 @@
       h1, h2, h3 { text-wrap: balance; }
       p { text-wrap: pretty; }
 
+      /* Demo: GIF preview + video reveal */
+      .demo-player { position: relative; }
+      .play-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background: rgba(15, 20, 35, 0.38);
+        border: none;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 800;
+        font-family: inherit;
+        letter-spacing: 0;
+        transition: background 160ms ease;
+      }
+      .play-overlay:hover { background: rgba(15, 20, 35, 0.54); }
+      .play-circle {
+        width: 68px;
+        height: 68px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.93);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: var(--violet-dark);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+        padding-left: 5px;
+        flex-shrink: 0;
+      }
+
+      /* Feature showcase rows */
+      .showcase-row {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
+        padding: 56px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .showcase-row:first-of-type { padding-top: 0; }
+      .showcase-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+      .showcase-row.reverse .showcase-gif { order: 2; }
+      .showcase-row.reverse .showcase-text { order: 1; }
+      .showcase-gif img {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        display: block;
+      }
+      .showcase-label {
+        display: inline-block;
+        padding: 6px 13px;
+        border-radius: 999px;
+        background: #ece8ff;
+        color: var(--violet-dark);
+        font-size: 13px;
+        font-weight: 950;
+        margin-bottom: 16px;
+      }
+      .showcase-text h3 { margin: 0 0 14px; font-size: 26px; line-height: 1.28; }
+      .showcase-text p { color: var(--muted); font-size: 16px; margin: 0 0 20px; }
+
       @media (max-width: 1040px) {
         .nav-links {
           display: none;
@@ -1241,6 +1310,15 @@
           justify-content: flex-start;
         }
 
+        .showcase-row,
+        .showcase-row.reverse {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 36px 0;
+        }
+        .showcase-row.reverse .showcase-gif,
+        .showcase-row.reverse .showcase-text { order: unset; }
+
         .console-body {
           grid-template-columns: 1fr;
           min-height: auto;
@@ -1286,7 +1364,7 @@
           <img src="./orientai-logo.png" alt="OrientAI" style="width:108px;height:auto;" />
         </a>
         <div class="nav-links" aria-label="頁面章節">
-          <a href="#marketplace">OrientAI 解決方案</a>
+          <a href="#showcase">OrientAI 解決方案</a>
           <a href="https://aisoportal.com/" target="_blank" rel="noopener" class="external">AI Server 優勢</a>
           <a href="#contact">預約諮詢</a>
         </div>
@@ -1310,7 +1388,7 @@
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#contact">預約 OrientAI Demo -></a>
-              <a class="button secondary" href="#marketplace">了解解決方案</a>
+              <a class="button secondary" href="#showcase">了解解決方案</a>
             </div>
             <div class="micro-proof" aria-label="OrientAI 核心價值">
               <div>
@@ -1334,7 +1412,14 @@
                 <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
                 <div class="demo-title">digiAI Studio / OrientAI Demo</div>
               </div>
-              <video class="demo-video" src="./digiai-studio-demo.mp4" controls muted playsinline preload="metadata"></video>
+              <div class="demo-player">
+                <img id="demo-gif-preview" class="demo-video" src="../成品展示.gif" alt="OrientAI 產品動態預覽" />
+                <button class="play-overlay" id="demo-play-btn" onclick="openFullDemo()" aria-label="觀看完整產品 Demo">
+                  <span class="play-circle" aria-hidden="true">▶</span>
+                  <span>觀看完整 Demo（3 分鐘）</span>
+                </button>
+              </div>
+              <video id="demo-full-video" class="demo-video" src="./digiai-studio-demo.mp4" controls muted playsinline preload="none" style="display:none;"></video>
               <div class="demo-caption">
                 <div>
                   <strong>知識庫助手與 Vibe coding 平台</strong>
@@ -1366,6 +1451,64 @@
             <span>AI Server</span>
             <span>API / MCP 串接</span>
             <span>SI 導入服務</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="showcase">
+        <div class="section-inner">
+          <div class="section-head">
+            <div class="section-kicker">PRODUCT SHOWCASE</div>
+            <h2>OrientAI 能幫企業做什麼？</h2>
+            <p>以下三個核心功能是企業最快感受到價值的起點，每一個都能在受控環境中快速啟用，不需大型 IT 專案。</p>
+          </div>
+
+          <div class="showcase-row">
+            <div class="showcase-gif">
+              <img src="../知識庫助手.gif" alt="知識庫助手 Demo" loading="lazy" />
+            </div>
+            <div class="showcase-text">
+              <span class="showcase-label">知識庫助手</span>
+              <h3>把企業文件、SOP 化為可問答的智慧知識庫</h3>
+              <p>將制度手冊、產品文件、法規資料與 SOP 匯入知識庫，OrientAI 自動建立向量索引，讓員工用自然語言提問，取得附有文件來源引用的精確回答，不必翻文件，也不需重複詢問同事。</p>
+              <ul class="feature-list">
+                <li>支援 PDF、Word、網頁等多格式文件匯入</li>
+                <li>每筆回答附帶文件段落與頁碼引用</li>
+                <li>多知識庫隔離管理，部門資料互不干擾</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="showcase-row reverse">
+            <div class="showcase-gif">
+              <img src="../Vibe_Coding.gif" alt="Vibe Coding Demo" loading="lazy" />
+            </div>
+            <div class="showcase-text">
+              <span class="showcase-label">Vibe Coding</span>
+              <h3>讓業務需求當天變成可用的應用工具</h3>
+              <p>業務人員以自然語言描述需求，OrientAI 在受控環境生成表單、查詢介面、報告產生器或流程觸發工具。IT 統一審核版本並整合到企業系統，不需等待開發排程，需求當天即可成為可用工具。</p>
+              <ul class="feature-list">
+                <li>No-code 工具生成，業務自助使用</li>
+                <li>IT 統一版本審核與部署管理</li>
+                <li>生成工具可嵌入企業入口或工作流程</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="showcase-row">
+            <div class="showcase-gif">
+              <img src="../架構說明.gif" alt="Agent 治理架構說明" loading="lazy" />
+            </div>
+            <div class="showcase-text">
+              <span class="showcase-label">Agent 治理架構</span>
+              <h3>四層 AI 價值鏈，從模型到 Agent 全面納管</h3>
+              <p>LLM 模型、MCP 工具、Skills 與 AI Agent 四層架構，OrientAI 在每一層建立授權、成本、稽核與版本管理。搭配 AI Server 的私有部署，企業可完整掌握每個 Agent 的運作範圍、工具調用軌跡與資源消耗。</p>
+              <ul class="feature-list">
+                <li>四層架構各自獨立授權與配額設定</li>
+                <li>工具調用參數完整留存，可搜尋可匯出</li>
+                <li>AI Server 支援私有雲與地端混合部署</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -1807,6 +1950,7 @@
       </div>
     </footer>
     <script>
+      /* Product tabs */
       (function () {
         var tabs = document.querySelectorAll('.product-tab');
         var panels = document.querySelectorAll('.product-detail');
@@ -1821,6 +1965,15 @@
           });
         });
       })();
+
+      /* Hero demo: swap GIF preview for full video on click */
+      function openFullDemo() {
+        document.getElementById('demo-gif-preview').style.display = 'none';
+        document.getElementById('demo-play-btn').style.display = 'none';
+        var v = document.getElementById('demo-full-video');
+        v.style.display = 'block';
+        v.play().catch(function () {});
+      }
     </script>
   </body>
 </html>
