@@ -259,35 +259,20 @@
         margin-top: 26px;
       }
 
-      .micro-proof {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        max-width: 680px;
+      .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
         margin-top: 24px;
       }
-
-      .micro-proof div {
-        min-height: 78px;
-        padding: 14px;
-        border: 1px solid rgba(217, 224, 234, 0.9);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.78);
-      }
-
-      .micro-proof strong {
-        display: block;
-        color: var(--ink);
-        font-size: 24px;
-        line-height: 1.1;
-      }
-
-      .micro-proof span {
-        display: block;
-        margin-top: 8px;
-        color: var(--muted);
+      .hero-chips span {
+        padding: 7px 15px;
+        border-radius: 999px;
+        border: 1px solid rgba(139, 116, 255, 0.32);
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--violet-dark);
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 800;
       }
 
       .product-stage {
@@ -1288,6 +1273,47 @@
       }
       .modal-close-btn:hover { background: rgba(255, 255, 255, 0.26); }
 
+      /* Full-video demo section */
+      .video-section { background: var(--soft); }
+      .video-section-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 52px;
+        align-items: center;
+      }
+      .video-thumb-wrap {
+        position: relative;
+        cursor: pointer;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+      .video-thumb-wrap img { width: 100%; display: block; }
+      .thumb-play-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(15, 20, 35, 0.28);
+        transition: background 0.16s;
+      }
+      .video-thumb-wrap:hover .thumb-play-overlay { background: rgba(15, 20, 35, 0.5); }
+      .thumb-play-circle {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: var(--violet-dark);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+        padding-left: 6px;
+      }
+
       /* Feature showcase rows */
       .showcase-row {
         display: grid;
@@ -1399,11 +1425,8 @@
           font-size: 30px;
         }
 
-        .micro-proof {
-          display: none;
-        }
+        .video-section-layout { grid-template-columns: 1fr; }
 
-        .micro-proof,
         .server-grid,
         .marketplace-steps,
         .value-chain,
@@ -1503,65 +1526,29 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div>
-            <div class="eyebrow-row">
-              <img src="./orientai-logo.png" alt="OrientAI" style="height:52px;width:auto;" />
-            </div>
-            <h1 id="hero-title">讓企業安全啟用 AI Agent 的工作平台</h1>
-            <p>
-              OrientAI 以 digiRunner 的企業權限控管與 API 治理經驗為核心，搭配 AI Server 的私有部署底座，讓企業能從 Agent 市集快速啟用智慧體，打造知識庫助手、報告流程與 Vibe coding 工具。
-            </p>
+            <img src="./orientai-logo.png" alt="OrientAI" style="height:80px;width:auto;margin-bottom:28px;display:block;" />
+            <h1 id="hero-title">專為企業而生的<br>Agentic AI 平台</h1>
+            <p>讓各部門都能在受控環境中安全啟用 AI Agent——從 Agent 市集快速領用智慧體、建立知識庫問答，到用 Vibe Coding 當天打造企業應用工具。</p>
             <div class="hero-actions">
               <a class="button primary" href="#contact">預約 OrientAI Demo -></a>
               <a class="button secondary" href="#showcase">了解解決方案</a>
             </div>
-            <div class="micro-proof" aria-label="OrientAI 核心價值">
-              <div>
-                <strong>Secure</strong>
-                <span>企業權限、審核、日誌與 Token 成本治理</span>
-              </div>
-              <div>
-                <strong>Marketplace</strong>
-                <span>發現、試用、申請、核准、啟用 AI Agent</span>
-              </div>
-              <div>
-                <strong>AI Server</strong>
-                <span>資料主權、模型推論與地端部署底座</span>
-              </div>
+            <div class="hero-chips">
+              <span>Agent 市集</span>
+              <span>知識庫助手</span>
+              <span>Vibe Coding</span>
+              <span>企業權限治理</span>
+              <span>AI Server</span>
             </div>
           </div>
 
-          <div id="studio" class="product-stage" aria-label="OrientAI 功能展示">
+          <div id="studio" class="product-stage" aria-label="OrientAI 產品展示">
             <div class="demo-window">
               <div class="demo-window-top">
                 <div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div>
-                <div class="demo-title" id="demo-slide-title">知識庫助手</div>
+                <div class="demo-title">OrientAI — 知識庫助手</div>
               </div>
-              <div class="demo-carousel" aria-label="產品功能輪播">
-                <div class="carousel-track" id="carousel-track">
-                  <div class="carousel-slide">
-                    <img src="../知識庫助手.gif" alt="知識庫助手" />
-                  </div>
-                  <div class="carousel-slide">
-                    <img src="../Vibe_Coding.gif" alt="Vibe Coding 工具平台" loading="lazy" />
-                  </div>
-                  <div class="carousel-slide">
-                    <img src="../成品展示.gif" alt="成品展示" loading="lazy" />
-                  </div>
-                </div>
-                <button class="carousel-nav carousel-prev" onclick="carouselPrev()" aria-label="上一項">‹</button>
-                <button class="carousel-nav carousel-next" onclick="carouselNext()" aria-label="下一項">›</button>
-                <div class="carousel-bar">
-                  <div class="carousel-dots">
-                    <button class="cdot cdot-active" onclick="goToSlide(0)" aria-label="知識庫助手"></button>
-                    <button class="cdot" onclick="goToSlide(1)" aria-label="Vibe Coding"></button>
-                    <button class="cdot" onclick="goToSlide(2)" aria-label="成品展示"></button>
-                  </div>
-                  <button class="video-watch-btn" onclick="openVideoModal()" title="觀看完整介紹影片">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                    完整介紹影片
-                  </button>
-                </div>
-              </div>
+              <img class="demo-video" src="../知識庫助手.gif" alt="OrientAI 知識庫助手展示" />
             </div>
           </div>
         </div>
@@ -1635,6 +1622,28 @@
                 <li>工具調用參數完整留存，可搜尋可匯出</li>
                 <li>AI Server 支援私有雲與地端混合部署</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="full-demo" class="video-section">
+        <div class="section-inner">
+          <div class="video-section-layout">
+            <div>
+              <div class="section-kicker">FULL PRODUCT DEMO</div>
+              <h2>三分鐘看懂 OrientAI 的完整運作</h2>
+              <p>從知識庫助手、Agent 市集到 Vibe Coding，一支影片帶你完整體驗企業 Agentic AI 平台的核心流程，以及 AI Server 如何讓整個系統跑在企業可控的環境中。</p>
+              <button class="button primary" onclick="openVideoModal()" style="margin-top:20px;border:none;cursor:pointer;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                觀看完整 Demo（3 分鐘）
+              </button>
+            </div>
+            <div class="video-thumb-wrap" onclick="openVideoModal()" role="button" tabindex="0" aria-label="觀看完整產品 Demo">
+              <img src="../成品展示.gif" alt="OrientAI 完整 Demo 預覽" loading="lazy" />
+              <div class="thumb-play-overlay">
+                <span class="thumb-play-circle">▶</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2100,22 +2109,6 @@
           });
         });
       })();
-
-      /* GIF Carousel */
-      var currentSlide = 0;
-      var slideTitles = ['知識庫助手', 'Vibe Coding 工具平台', '成品展示'];
-
-      function updateCarousel() {
-        document.getElementById('carousel-track').style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-        document.querySelectorAll('.cdot').forEach(function (d, i) {
-          d.classList.toggle('cdot-active', i === currentSlide);
-        });
-        document.getElementById('demo-slide-title').textContent = slideTitles[currentSlide];
-      }
-
-      function carouselPrev() { currentSlide = (currentSlide + 2) % 3; updateCarousel(); }
-      function carouselNext() { currentSlide = (currentSlide + 1) % 3; updateCarousel(); }
-      function goToSlide(n) { currentSlide = n; updateCarousel(); }
 
       /* Video modal */
       function openVideoModal() {
