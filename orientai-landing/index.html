@@ -25,6 +25,7 @@
         --coral: #ff735c;
         --green: #2e9e62;
         --shadow: 0 24px 70px rgba(25, 33, 61, 0.14);
+        --header-height: 76px;
       }
 
       * {
@@ -33,6 +34,7 @@
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: var(--header-height);
       }
 
       body {
@@ -192,6 +194,13 @@
           linear-gradient(135deg, #f9fbff 0%, #edf4ff 100%);
       }
 
+      #orientai,
+      #express,
+      #aiso,
+      #contact {
+        scroll-margin-top: var(--header-height);
+      }
+
       .hero::after {
         content: "";
         position: absolute;
@@ -208,11 +217,11 @@
       .hero-inner {
         position: relative;
         z-index: 2;
-        width: min(1320px, calc(100% - 56px));
+        width: min(1400px, calc(100% - 56px));
         margin: 0 auto;
         display: grid;
-        grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1.42fr);
-        gap: 18px;
+        grid-template-columns: minmax(320px, 0.62fr) minmax(0, 1.38fr);
+        gap: 26px;
         align-items: center;
       }
 
@@ -230,9 +239,9 @@
       }
 
       .hero-copy {
-        max-width: 980px;
+        max-width: 1080px;
         padding-top: 0;
-        margin-top: -26px;
+        margin-top: -18px;
       }
 
       .hero-copy h1,
@@ -241,8 +250,8 @@
       }
 
       .hero-copy h1 {
-        transform: translateY(-30px);
-        margin-bottom: -10px;
+        transform: none;
+        margin-bottom: 0;
       }
 
       .eyebrow-row {
@@ -268,9 +277,9 @@
 
       h1 {
         margin: 0;
-        max-width: 760px;
-        font-size: 50px;
-        line-height: 1.08;
+        max-width: 920px;
+        font-size: 66px;
+        line-height: 1.01;
         font-weight: 950;
         letter-spacing: 0;
       }
@@ -290,21 +299,21 @@
       }
 
       /* Hero — left feature rows */
-      .hero-features { margin: 34px 0 0; display: flex; flex-direction: column; gap: 24px; }
+      .hero-features { margin: 40px 0 0; display: flex; flex-direction: column; gap: 28px; }
       .hero-feat {
         display: grid;
-        grid-template-columns: 68px minmax(0, 1fr);
+        grid-template-columns: 76px minmax(0, 1fr);
         align-items: start;
-        column-gap: 22px;
-        min-height: 104px;
+        column-gap: 24px;
+        min-height: 116px;
       }
       .hero-feat > div:last-child {
-        max-width: 900px;
+        max-width: 980px;
         padding-top: 2px;
       }
       .hf-icon-wrap {
-        width: 64px;
-        height: 64px;
+        width: 72px;
+        height: 72px;
         border-radius: 16px;
         display: flex;
         align-items: center;
@@ -312,17 +321,17 @@
         flex-shrink: 0;
       }
       .hf-title {
-        font-size: 26px;
+        font-size: 30px;
         font-weight: 900;
         color: var(--ink);
-        margin-bottom: 7px;
+        margin-bottom: 8px;
         line-height: 1.18;
       }
       .hf-sub {
-        font-size: 19px;
+        font-size: 22px;
         color: var(--muted);
         font-weight: 700;
-        line-height: 1.5;
+        line-height: 1.46;
         letter-spacing: 0;
       }
 
@@ -737,8 +746,8 @@
       }
 
       .express-section {
-        min-height: calc(100vh - 76px);
-        padding: 14px 0 16px;
+        min-height: calc(100vh - var(--header-height));
+        padding: 8px 0 10px;
         align-items: center;
       }
 
@@ -748,78 +757,93 @@
 
       .express-section .hero-inner {
         width: min(1320px, calc(100% - 56px));
-        grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1.52fr);
-        gap: 28px;
+        grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1.42fr);
+        gap: 18px;
       }
 
       .express-section .hero-logo-col img {
-        width: min(100%, 340px);
+        width: min(100%, 400px);
+      }
+
+      .express-section .hero-logo-col {
+        align-items: flex-start;
+      }
+
+      .express-copy {
+        max-width: 1180px;
       }
 
       .express-section .section-kicker {
-        margin-bottom: 6px;
+        margin-bottom: 2px;
       }
 
       .express-copy h1 {
-        font-size: 64px;
+        font-size: clamp(50px, 4.6vw, 62px);
       }
 
       .express-company {
-        margin-top: 8px;
+        margin-top: 4px;
+        font-size: 17px;
       }
 
       .express-tagline {
-        margin-top: 6px;
-        font-size: 30px;
+        margin-top: 4px;
+        font-size: 26px;
       }
 
       .express-summary {
-        margin-top: 16px;
-        max-width: 760px;
-        font-size: 18px;
-        line-height: 1.5;
+        margin-top: 10px;
+        max-width: 1140px;
+        font-size: 15px;
+        line-height: 1.34;
       }
 
       .express-meta {
-        margin-top: 16px;
+        margin-top: 12px;
+        gap: 8px;
+      }
+
+      .express-meta span {
+        padding: 7px 11px;
       }
 
       .express-feature-panel {
         margin-top: 0;
-        padding: 22px 26px;
+        padding: 18px 22px;
       }
 
       .express-panel-head {
-        padding-bottom: 14px;
+        align-items: center;
+        padding-bottom: 10px;
       }
 
       .express-panel-head strong {
-        font-size: 25px;
+        font-size: 22px;
       }
 
       .express-features {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px 18px;
-        margin-top: 18px;
+        gap: 10px 20px;
+        margin-top: 12px;
       }
 
       .express-features li {
-        grid-template-columns: 42px minmax(0, 1fr);
-        gap: 12px;
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 10px;
       }
 
       .express-icon {
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
       }
 
       .express-features strong {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .express-features small {
-        font-size: 13px;
-        line-height: 1.42;
+        font-size: 12.5px;
+        line-height: 1.34;
       }
 
       .express-layout,
@@ -834,8 +858,8 @@
       .aiso-copy h1 {
         margin: 0;
         color: var(--ink);
-        font-size: 58px;
-        line-height: 1.02;
+        font-size: 46px;
+        line-height: 1.4;
         font-weight: 950;
       }
 
@@ -856,7 +880,15 @@
         font-weight: 950;
       }
 
-      .express-summary,
+      .express-summary {
+        max-width: 1140px;
+        margin: 10px 0 0;
+        color: #4c5669;
+        font-size: 15px;
+        line-height: 1.34;
+        font-weight: 650;
+      }
+
       .aiso-summary {
         max-width: 590px;
         margin: 20px 0 0;
@@ -983,6 +1015,44 @@
         font-size: 13px;
         line-height: 1.45;
         font-weight: 700;
+      }
+
+      .express-section .express-feature-panel {
+        padding: 18px 22px;
+      }
+
+      .express-section .express-panel-head {
+        align-items: center;
+        padding-bottom: 10px;
+      }
+
+      .express-section .express-panel-head strong {
+        font-size: 22px;
+      }
+
+      .express-section .express-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 20px;
+        margin-top: 12px;
+      }
+
+      .express-section .express-features li {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .express-section .express-icon {
+        width: 34px;
+        height: 34px;
+      }
+
+      .express-section .express-features strong {
+        font-size: 15px;
+      }
+
+      .express-section .express-features small {
+        font-size: 12.5px;
+        line-height: 1.34;
       }
 
       .aiso-proof-grid {
@@ -1129,8 +1199,8 @@
       .aiso-badge {
         color: #004b45;
         background: #dff8f4;
-        font-size: 16px;
-        padding: 14px 16px;
+        font-size: 14px;
+        padding: 12px 14px;
       }
 
       .aiso-features {
@@ -1196,9 +1266,9 @@
       }
 
       .aiso-layout {
-        grid-template-columns: minmax(320px, 0.82fr) minmax(440px, 1.18fr);
-        align-items: start;
-        gap: 30px;
+        grid-template-columns: minmax(470px, 1.04fr) minmax(420px, 0.96fr);
+        align-items: stretch;
+        gap: 20px;
       }
 
       .aiso-brand-lockup {
@@ -1240,53 +1310,81 @@
 
       .aiso-copy h1 {
         color: var(--ink);
-        font-size: 44px;
-        line-height: 1.04;
+        max-width: 760px;
+        font-size: 54px;
+        line-height: 0.98;
       }
 
       .aiso-company {
         color: #1238f2;
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .aiso-tagline {
         color: #1b2440;
-        font-size: 24px;
+        font-size: 25px;
+        line-height: 1.12;
+        white-space: nowrap;
       }
 
       .aiso-summary {
-        max-width: 680px;
+        max-width: 760px;
         color: #4c5669;
-        font-size: 17px;
-        line-height: 1.5;
+        font-size: 16px;
+        line-height: 1.52;
+      }
+
+      .aiso-summary + .aiso-summary {
+        margin-top: 14px;
+      }
+
+      .aiso-highlight {
+        font-weight: 900;
+      }
+
+      .aiso-highlight.violet {
+        color: #5d48d8;
+      }
+
+      .aiso-highlight.orange {
+        color: #df7a12;
+      }
+
+      .aiso-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 12px;
+        max-width: 760px;
+        margin-top: 18px;
       }
 
       .aiso-meta span {
         border-color: rgba(18, 56, 242, 0.16);
         color: #263247;
         background: #ffffff;
+        font-size: 14px;
+        padding: 10px 12px;
+        text-align: center;
       }
 
-      .aiso-actions .button.primary {
-        background: #1238f2;
-        box-shadow: 0 16px 36px rgba(18, 56, 242, 0.24);
-      }
-
-      .aiso-actions .button.secondary {
-        color: var(--ink);
-        background: #ffffff;
-        border-color: var(--line);
+      .aiso-actions {
+        display: none;
       }
 
       .aiso-feature-panel {
-        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 18px 18px 16px;
         border-color: rgba(217, 224, 234, 0.96);
         background: rgba(255, 255, 255, 0.94);
         box-shadow: 0 20px 48px rgba(25, 33, 61, 0.1);
       }
 
       .aiso-panel-head {
+        align-items: start;
         border-bottom-color: var(--line);
+        padding-bottom: 12px;
       }
 
       .aiso-panel-head span {
@@ -1296,14 +1394,25 @@
 
       .aiso-panel-head strong {
         color: var(--ink);
-        font-size: 24px;
+        max-width: 540px;
+        font-size: 21px;
+        line-height: 1.16;
+      }
+
+      .aiso-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+        flex: 1 1 auto;
       }
 
       .aiso-features li {
-        grid-template-columns: 50px minmax(0, 1fr);
-        padding: 12px;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 12px;
+        padding: 14px 12px;
         border-color: rgba(217, 224, 234, 0.96);
         background: #ffffff;
+        align-items: center;
       }
 
       .aiso-icon {
@@ -1314,32 +1423,38 @@
 
       .aiso-features strong {
         color: var(--ink);
-        font-size: 19px;
+        font-size: 17px;
+        line-height: 1.28;
       }
 
       .aiso-features small {
         color: var(--muted);
         font-size: 13px;
-        line-height: 1.45;
+        line-height: 1.4;
       }
 
       .aiso-stat {
         color: #1238f2;
+        margin-right: 6px;
+        font-size: 22px;
       }
 
       .aiso-proof-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 42px;
-        margin-top: 54px;
+        gap: 70px;
+        width: min(1640px, calc(100vw - 72px));
+        margin: 76px 50% 0;
+        transform: translateX(-50%);
       }
 
       .aiso-proof-card {
         display: grid;
-        grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr);
-        gap: 72px;
+        grid-template-columns: minmax(360px, 0.34fr) minmax(0, 0.66fr);
+        gap: clamp(48px, 5vw, 96px);
         align-items: center;
-        padding: 34px 0;
+        min-height: min(820px, calc(100vh - 100px));
+        padding: 32px 0;
         border: none;
         border-radius: 0;
         background: transparent;
@@ -1347,15 +1462,24 @@
       }
 
       .aiso-proof-card img {
-        width: auto;
+        width: 100%;
         max-width: 100%;
-        max-height: 520px;
+        max-height: 760px;
         height: auto;
-        justify-self: center;
+        justify-self: stretch;
         aspect-ratio: auto;
         border: none;
         border-radius: 0;
         object-fit: contain;
+      }
+
+      .aiso-proof-card:nth-child(1) img {
+        max-height: 580px;
+      }
+
+      .aiso-proof-card:nth-child(2) img,
+      .aiso-proof-card:nth-child(3) img {
+        max-height: 820px;
       }
 
       .aiso-proof-card div {
@@ -1363,16 +1487,18 @@
       }
 
       .aiso-proof-card strong {
-        font-size: 34px;
-        line-height: 1.2;
+        font-size: clamp(40px, 3.3vw, 60px);
+        line-height: 1.28;
+        word-break: keep-all;
       }
 
       .aiso-proof-card small {
-        margin-top: 22px;
+        margin-top: 32px;
         color: #16294d;
-        font-size: 20px;
-        line-height: 1.65;
-        font-weight: 650;
+        font-size: clamp(23px, 1.6vw, 31px);
+        line-height: 1.75;
+        font-weight: 760;
+        word-break: keep-all;
       }
 
       section {
@@ -1402,6 +1528,10 @@
         font-size: 40px;
         line-height: 1.18;
         font-weight: 950;
+      }
+
+      .section-head h2 {
+        white-space: nowrap;
       }
 
       .section-head p {
@@ -2142,6 +2272,10 @@
       .showcase-text p { color: var(--muted); font-size: 16px; margin: 0 0 20px; }
 
       @media (max-height: 760px) and (min-width: 1041px) {
+        :root {
+          --header-height: 68px;
+        }
+
         .nav {
           min-height: 68px;
         }
@@ -2158,7 +2292,7 @@
 
         .hero-inner {
           gap: 26px;
-          grid-template-columns: 0.72fr 1.28fr;
+          grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1.38fr);
         }
 
         .hero-logo-col img {
@@ -2171,24 +2305,98 @@
         }
 
         .hero-copy h1 {
-          transform: translateY(-20px);
-          margin-bottom: -6px;
+          transform: none;
+          margin-bottom: 0;
+        }
+
+        .express-section {
+          padding: 6px 0 8px;
+        }
+
+        .express-section .hero-inner {
+          width: min(1320px, calc(100% - 56px));
+          grid-template-columns: 0.72fr 1.28fr;
+          gap: 26px;
+        }
+
+        .express-section .hero-logo-col img {
+          width: min(100%, 410px);
+        }
+
+        .express-copy h1 {
+          font-size: 52px;
+        }
+
+        .express-company {
+          margin-top: 2px;
+        }
+
+        .express-tagline {
+          margin-top: 2px;
+          font-size: 24px;
+        }
+
+        .express-summary {
+          margin-top: 8px;
+          max-width: 1080px;
+          font-size: 14px;
+          line-height: 1.3;
+        }
+
+        .express-meta {
+          margin-top: 10px;
+        }
+
+        .express-feature-panel {
+          padding: 14px 18px;
+        }
+
+        .express-panel-head {
+          padding-bottom: 8px;
+        }
+
+        .express-panel-head strong {
+          font-size: 20px;
+        }
+
+        .express-features {
+          gap: 8px 18px;
+          margin-top: 10px;
+        }
+
+        .express-features li {
+          grid-template-columns: 32px minmax(0, 1fr);
+          gap: 9px;
+        }
+
+        .express-icon {
+          width: 30px;
+          height: 30px;
+        }
+
+        .express-features strong {
+          font-size: 14px;
+        }
+
+        .express-features small {
+          font-size: 12px;
+          line-height: 1.3;
         }
 
         h1 {
-          font-size: 32px;
-          line-height: 1.08;
+          font-size: 52px;
+          line-height: 1.02;
         }
 
         .hero-features {
-          margin-top: 18px;
-          gap: 10px;
+          margin-top: 26px;
+          gap: 16px;
         }
 
         .hero-feat {
-          grid-template-columns: 48px minmax(0, 1fr);
-          column-gap: 12px;
-          min-height: 72px;
+          grid-template-columns: 58px minmax(0, 1fr);
+          column-gap: 16px;
+          min-height: 86px;
         }
 
         .hero-feat > div:last-child {
@@ -2196,18 +2404,18 @@
         }
 
         .hf-icon-wrap {
-          width: 48px;
-          height: 48px;
-          border-radius: 10px;
+          width: 56px;
+          height: 56px;
+          border-radius: 12px;
         }
 
         .hf-title {
-          font-size: 17px;
-          margin-bottom: 2px;
+          font-size: 24px;
+          margin-bottom: 5px;
         }
 
         .hf-sub {
-          font-size: 13px;
+          font-size: 18px;
           line-height: 1.4;
         }
 
@@ -2281,12 +2489,25 @@
           grid-template-columns: 1fr;
         }
 
+        .aiso-tagline {
+          white-space: normal;
+        }
+
+        .aiso-meta {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .aiso-features {
+          grid-template-columns: 1fr;
+        }
+
         .aiso-proof-grid {
           grid-template-columns: 1fr;
         }
 
         .aiso-proof-card {
           grid-template-columns: 1fr;
+          min-height: auto;
         }
 
         .server-grid,
@@ -2296,6 +2517,10 @@
       }
 
       @media (max-width: 760px) {
+        :root {
+          --header-height: 58px;
+        }
+
         .nav {
           width: min(100% - 28px, 1180px);
           min-height: 58px;
@@ -2332,6 +2557,14 @@
         .aiso-copy h1 {
           font-size: 38px;
           line-height: 1.06;
+        }
+
+        .aiso-tagline {
+          white-space: normal;
+        }
+
+        .aiso-meta {
+          grid-template-columns: 1fr;
         }
 
         .express-section {
@@ -2460,6 +2693,7 @@
         .aiso-proof-card {
           grid-template-columns: 1fr;
           gap: 18px;
+          min-height: auto;
           padding: 24px 0;
         }
 
@@ -2698,7 +2932,7 @@
                 </div>
                 <div>
                   <div class="hf-title">可控、安全的 AI Agent 智慧體平台</div>
-                  <div class="hf-sub">讓 AI Agent 只在企業允許的範圍內自主運作，RBAC 角色授權、審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，<br />Shadow AI 零風險。</div>
+                  <div class="hf-sub">讓 AI Agent 只在企業允許的範圍內自主運作，RBAC 角色授權、審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，Shadow AI 零風險。</div>
                 </div>
               </div>
               <div class="hero-feat">
@@ -2740,7 +2974,6 @@
           </div>
 
           <div class="express-copy">
-            <div class="section-kicker">ORIENTAI EXPRESS</div>
             <h1 id="express-title">OrientAI Express</h1>
             <p class="express-company">TPIsoftware Corporation</p>
             <p class="express-tagline">拖拉文件，即刻啟動知識 Agent</p>
@@ -2809,23 +3042,21 @@
         <div class="aiso-inner">
           <div class="aiso-layout">
             <div class="aiso-copy">
-              <div class="section-kicker">ORIENTAI + AISO</div>
-              <h1 id="aiso-title">OrientAI 裝在 AISO 上，企業 AI 才能真正擴大使用</h1>
+              <div class="section-kicker">OreintAI+AISO</div>
+              <h1 id="aiso-title">OrientAI 裝在 AISO 上，<br />企業 AI 才能真正擴大使用</h1>
               <p class="aiso-company">AISO Alliance · TPIsoftware × Phison</p>
               <p class="aiso-tagline">主權 AI 基礎建設，讓 Agent 從試點走向全公司</p>
               <p class="aiso-summary">
-                OrientAI 搭配 AISO 的 AI SERVER 系列產品，將 Agent 市集、知識庫、RAG、模型推論與企業治理放在可控環境中運作。當 AI SERVER 搭載群聯 aiDAPTIV+ 技術時，可透過記憶體延展與推論加速，讓更多使用者同時使用、更長上下文被保留，也能承載更聰明、更大的模型。
+                OrientAI 搭配 AISO 的 AI SERVER 系列產品，將 Agent 市集、知識庫、RAG、模型推論與企業治理放在可控環境中運作。
+              </p>
+              <p class="aiso-summary">
+                當 AI SERVER 搭載群聯 aiDAPTIV+ 技術時，可透過記憶體延展與推論加速，讓 <span class="aiso-highlight violet">更多使用者同時使用</span>、<span class="aiso-highlight orange">更長上下文被保留</span>，也能承載 <span class="aiso-highlight violet">更聰明、更大的模型</span>。
               </p>
               <div class="aiso-meta" aria-label="OrientAI 搭配 AISO 的效益">
                 <span>Concurrent 提高 5 倍</span>
                 <span>上下文視窗提升 2 倍</span>
                 <span>支援更大模型</span>
                 <span>資料留在企業內部</span>
-              </div>
-              <div class="aiso-actions">
-                <a class="button primary" href="#contact">預約 OrientAI+AISO 諮詢 -></a>
-                <a class="button secondary" href="https://aisoportal.com/" target="_blank" rel="noopener">前往 AISO 官網</a>
-                <a class="button secondary" href="https://phisonaidaptiv.com/zh-tw/" target="_blank" rel="noopener">了解 Phison aiDAPTIV+</a>
               </div>
             </div>
 
@@ -2888,18 +3119,21 @@
             </article>
             <article class="aiso-proof-card">
               <div>
-                <strong>推論更快、上下文更長</strong>
-                <small>透過加速首次 Token 回應與延長可處理的 Token 長度，OrientAI Agent 能保留更多任務背景、文件段落與歷史對話，回答更完整也更貼近情境。</small>
+                <strong>加強推論</strong>
+                <small>aiDAPTIV+ 能透過加速首次召回 Token 的時間來實現更快速的回應，提升推論使用體驗，並同時延長 Token 長度，提供更豐富的上下文，從而生成更長且更準確的回答。</small>
               </div>
-              <img src="./phison-aidaptiv-inference.jpeg" alt="Phison aiDAPTIV+ 加強推論與 Token 長度示意圖" loading="lazy" />
+              <img src="./phison-aidaptiv-inference-new.png" alt="Phison aiDAPTIV+ 加強推論與 Token 長度示意圖" loading="lazy" />
             </article>
             <article class="aiso-proof-card">
               <div>
-                <strong>支援更大規模模型</strong>
-                <small>整合快閃記憶體與 DRAM 後，可擴展可用記憶體資源，讓 AISO AI SERVER 有機會承載更聰明、更大的模型，支援更高階的企業 Agent 應用。</small>
+                <strong>釋放模型無限潛能</strong>
+                <small>aiDAPTIV+ 透過整合快閃記憶體與 DRAM，突破 GPU 顯示卡 HBM 與 GDDR 記憶體容量限制，讓 AISO AI SERVER 能承載更聰明、更大規模的 AI 模型。企業可以用更實惠的成本，在地端運行過去只有大型企業和雲端供應商才能負擔的高階模型，支援更複雜的 Agent 應用場景。</small>
               </div>
-              <img src="./phison-aidaptiv-model.jpeg" alt="Phison aiDAPTIV+ 釋放模型無限潛能示意圖" loading="lazy" />
+              <img src="./phison-aidaptiv-model-cropped.png" alt="Phison aiDAPTIV+ 釋放模型無限潛能示意圖" loading="lazy" />
             </article>
+          </div>
+          <div style="display:flex;justify-content:center;margin-top:60px;">
+            <a class="button secondary" href="https://phisonaidaptiv.com/zh-tw/" target="_blank" rel="noopener">了解 Phison aiDAPTIV+</a>
           </div>
         </div>
       </section>
@@ -3040,20 +3274,20 @@
           <div class="section-head">
             <div class="section-kicker">ORIENTAI PRODUCT PILLARS</div>
             <h2>OrientAI 的三個主打特色</h2>
-            <p>企業安全、Agent 市集、知識庫助手與 Vibe Coding，四個核心方向一次到位。</p>
+            <p>企業級安全治理、LLM 模型聰明調度、市集化管理，讓 AI Agent 安全可控地為全公司創造價值。</p>
           </div>
           <div class="success-grid">
             <article class="success-card">
-              <h3>企業權限控管與安全</h3>
-              <p>精煉 digiRunner 在 API 管理、授權、遮罩、日誌與資源治理的經驗，作為企業安全使用 AI Agent 的基石。</p>
+              <h3>企業級安全治理</h3>
+              <p>透過 AI Gateway 與 RBAC 角色授權，讓 AI Agent 只在企業允許的範圍內自主運作。審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，Shadow AI 零風險。</p>
             </article>
             <article class="success-card">
-              <h3>Agent 市集</h3>
-              <p>把 AI Agent 變成可搜尋、可試用、可申請、可核准的服務貨架，讓使用者快速啟用智慧體完成工作。</p>
+              <h3>LLM 模型聰明調度</h3>
+              <p>依據工作類型、資料敏感度與成本目標，AI 自動判斷由哪個模型處理任務，聰明駕馭雲端與地端模型，讓每次 AI 任務都兼顧品質、安全與成本效益。</p>
             </article>
             <article class="success-card">
-              <h3>知識庫助手與 Vibe coding</h3>
-              <p>讓業務單位透過可視化介面組裝知識、工具與輸出格式，將需求快速轉成可用的 Agent 或小工具。</p>
+              <h3>市集化管理</h3>
+              <p>Marketplace 讓企業員工視覺化選擇需要的 AI Agent，從知識庫助理、客服助理到部門專屬助理都能快速啟用，讓智慧體協助員工釋放生產力與創造力。</p>
             </article>
           </div>
         </div>
