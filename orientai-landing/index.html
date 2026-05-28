@@ -1382,21 +1382,33 @@
       }
 
       .aiso-panel-head {
-        align-items: start;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
         border-bottom-color: var(--line);
-        padding-bottom: 12px;
+        padding-bottom: 10px;
       }
 
       .aiso-panel-head span {
         color: #1238f2;
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .aiso-panel-head strong {
         color: var(--ink);
-        max-width: 540px;
-        font-size: 21px;
-        line-height: 1.16;
+        max-width: none;
+        font-size: 18px;
+        line-height: 1.12;
+        white-space: nowrap;
+      }
+
+      .aiso-panel-head > div:first-child {
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+
+      .aiso-panel-head > div:last-child {
+        flex: 0 0 auto;
       }
 
       .aiso-features {
