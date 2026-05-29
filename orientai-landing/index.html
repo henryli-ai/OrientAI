@@ -2662,13 +2662,17 @@
         }
 
         .express-section .hero-inner {
-          grid-template-columns: 86px minmax(0, 1fr);
-          gap: 14px;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .express-section .hero-logo-col {
+          justify-content: center;
         }
 
         .express-section .hero-logo-col img {
-          width: 86px;
-          margin-top: 4px;
+          width: min(160px, 45%);
+          margin: 0 auto;
         }
 
         .express-section .section-kicker {
@@ -2778,6 +2782,10 @@
 
         .aiso-proof-grid {
           grid-template-columns: 1fr;
+          width: auto;
+          margin: 40px 0 0;
+          transform: none;
+          gap: 40px;
         }
 
         .aiso-proof-card {
@@ -2789,7 +2797,9 @@
 
         .aiso-proof-card img {
           width: 100%;
+          height: auto;
           max-height: none;
+          object-fit: contain;
         }
 
         .aiso-proof-card strong {
