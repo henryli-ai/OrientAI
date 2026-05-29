@@ -2617,7 +2617,8 @@
         }
 
         .brand img {
-          width: 122px;
+          height: 28px;
+          width: auto;
         }
 
         .product-name,
@@ -2798,8 +2799,13 @@
         .aiso-proof-card img {
           width: 100%;
           height: auto;
-          max-height: none;
           object-fit: contain;
+        }
+
+        .aiso-proof-card:nth-child(1) img,
+        .aiso-proof-card:nth-child(2) img,
+        .aiso-proof-card:nth-child(3) img {
+          max-height: none;
         }
 
         .aiso-proof-card strong {
