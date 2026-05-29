@@ -145,6 +145,24 @@
         gap: 10px;
       }
 
+      .lang-btn {
+        padding: 5px 14px;
+        border: 1.5px solid var(--violet-dark);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--violet-dark);
+        font-size: 13px;
+        font-weight: 900;
+        cursor: pointer;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .lang-btn:hover {
+        background: var(--violet-dark);
+        color: #fff;
+      }
+
       .button {
         min-height: 42px;
         display: inline-flex;
@@ -2925,8 +2943,9 @@
           <a href="#orientai">OrientAI</a>
           <a href="#express">OrientAI Express</a>
           <a href="#aiso">OrientAI+AISO</a>
-          <a href="#contact">預約諮詢</a>
+          <a href="#contact" data-en="Book a Demo">預約諮詢</a>
         </div>
+        <button id="lang-toggle" class="lang-btn" aria-label="切換語言 / Switch Language">EN</button>
       </nav>
     </header>
 
@@ -2938,15 +2957,15 @@
           </div>
 
           <div class="hero-copy">
-            <h1 id="hero-title">專為企業而生的 Agentic AI 平台</h1>
+            <h1 id="hero-title" data-en="Enterprise-Grade Agentic AI Platform">專為企業而生的 Agentic AI 平台</h1>
             <div class="hero-features">
               <div class="hero-feat">
                 <div class="hf-icon-wrap" style="background:#dff8f4;">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a596" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">可控、安全的 AI Agent 智慧體平台</div>
-                  <div class="hf-sub">讓 AI Agent 只在企業允許的範圍內自主運作，RBAC 角色授權、審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，Shadow AI 零風險。</div>
+                  <div class="hf-title" data-en="Controllable, Secure AI Agent Platform">可控、安全的 AI Agent 智慧體平台</div>
+                  <div class="hf-sub" data-en="AI Agents operate only within enterprise-approved boundaries. RBAC role-based authorization, audit logs, and Token quotas ensure full governance — every call is traceable, zero Shadow AI risk.">讓 AI Agent 只在企業允許的範圍內自主運作，RBAC 角色授權、審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，Shadow AI 零風險。</div>
                 </div>
               </div>
               <div class="hero-feat">
@@ -2954,8 +2973,8 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5d48d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">快速啟用各式 Agent，一站式市集管理</div>
-                  <div class="hf-sub">知識庫助理、客服助理與部門專屬助理都能快速上線，從啟用、權限到成效追蹤，全部集中在同一平台管理。</div>
+                  <div class="hf-title" data-en="Rapid Agent Deployment, Centralized Marketplace">快速啟用各式 Agent，一站式市集管理</div>
+                  <div class="hf-sub" data-en="Knowledge base assistants, customer service agents, and department-specific agents can be deployed quickly. Activation, permissions, and performance tracking are all managed in one platform.">知識庫助理、客服助理與部門專屬助理都能快速上線，從啟用、權限到成效追蹤，全部集中在同一平台管理。</div>
                 </div>
               </div>
               <div class="hero-feat">
@@ -2963,8 +2982,8 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2a67d8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M7 12h10"/><path d="M10 17h4"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">雲端與地端 LLM 智慧調用</div>
-                  <div class="hf-sub">依據工作類型、資料敏感度與成本目標，自動切換雲端或地端模型，讓每次 AI 任務都兼顧品質、安全與成本效益。</div>
+                  <div class="hf-title" data-en="Intelligent Cloud &amp; On-Premise LLM Routing">雲端與地端 LLM 智慧調用</div>
+                  <div class="hf-sub" data-en="Automatically switch between cloud and on-premise models based on task type, data sensitivity, and cost objectives — balancing quality, security, and cost efficiency for every AI task.">依據工作類型、資料敏感度與成本目標，自動切換雲端或地端模型，讓每次 AI 任務都兼顧品質、安全與成本效益。</div>
                 </div>
               </div>
               <div class="hero-feat">
@@ -2972,8 +2991,8 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c27c00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                 </div>
                 <div>
-                  <div class="hf-title">業務也能當天交付 AI 工具</div>
-                  <div class="hf-sub">Vibe Coding 讓非工程團隊用自然語言描述需求，AI 快速生成應用，經 IT 審核後即可安全部署。</div>
+                  <div class="hf-title" data-en="Business Teams Can Deliver AI Tools the Same Day">業務也能當天交付 AI 工具</div>
+                  <div class="hf-sub" data-en="Vibe Coding lets non-engineering teams describe their needs in natural language. AI generates the application quickly, and after IT review, it can be securely deployed.">Vibe Coding 讓非工程團隊用自然語言描述需求，AI 快速生成應用，經 IT 審核後即可安全部署。</div>
                 </div>
               </div>
             </div>
@@ -2990,22 +3009,22 @@
           <div class="express-copy">
             <h1 id="express-title">OrientAI Express</h1>
             <p class="express-company">TPIsoftware Corporation</p>
-            <p class="express-tagline">拖拉文件，即刻啟動知識 Agent</p>
-            <p class="express-summary">
+            <p class="express-tagline" data-en="Drag &amp; Drop Documents, Instantly Launch Knowledge Agents">拖拉文件，即刻啟動知識 Agent</p>
+            <p class="express-summary" data-en="Drag and drop PDF, Word, PowerPoint, FAQ, or SOP documents into OrientAI Express. The system automatically organizes content, builds an index, and activates a Q&amp;A-capable Knowledge Agent. Users can query enterprise data in natural language and receive grounded, traceable answers via RAG.">
               將 PDF、Word、PowerPoint、FAQ 或 SOP 文件拖拉匯入 OrientAI Express，系統會自動整理內容、建立索引並啟用可問答的知識 Agent。使用者能用自然語言查詢企業資料，透過 RAG 取得有依據、可追溯的回答。
             </p>
             <div class="express-meta" aria-label="OrientAI Express 核心定位">
-              <span>PDF / Word 匯入</span>
-              <span>RAG 知識問答</span>
-              <span>知識 Agent</span>
-              <span>來源引用</span>
+              <span data-en="PDF / Word Import">PDF / Word 匯入</span>
+              <span data-en="RAG Q&amp;A">RAG 知識問答</span>
+              <span data-en="Knowledge Agent">知識 Agent</span>
+              <span data-en="Source Citation">來源引用</span>
             </div>
 
             <div class="express-feature-panel" aria-label="OrientAI Express 主要特色">
               <div class="express-panel-head">
                 <div>
-                  <span>啟動流程</span>
-                  <strong>從文件到知識 Agent，拖拉點選快速啟用</strong>
+                  <span data-en="Activation Flow">啟動流程</span>
+                  <strong data-en="From Documents to Knowledge Agents — Activate in a Few Clicks">從文件到知識 Agent，拖拉點選快速啟用</strong>
                 </div>
                 <div class="express-badge">Express</div>
               </div>
@@ -3015,8 +3034,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5d48d8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
                   </span>
                   <div>
-                    <strong>拖拉上傳企業文件</strong>
-                    <small>支援 PDF、Word、簡報、FAQ、SOP 等常見資料，業務或知識管理者可自行匯入。</small>
+                    <strong data-en="Drag &amp; Drop Enterprise Documents">拖拉上傳企業文件</strong>
+                    <small data-en="Supports PDF, Word, presentations, FAQ, SOP, and other common formats. Business users or knowledge managers can import independently.">支援 PDF、Word、簡報、FAQ、SOP 等常見資料，業務或知識管理者可自行匯入。</small>
                   </div>
                 </li>
                 <li>
@@ -3024,8 +3043,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a596" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h11"/><path d="M6 21h12a2 2 0 0 0 2-2V7H8a2 2 0 0 0-2 2z"/></svg>
                   </span>
                   <div>
-                    <strong>自動切段、索引與向量化</strong>
-                    <small>系統整理文件段落並建立可檢索知識庫，省去手動整理與複雜設定。</small>
+                    <strong data-en="Auto Chunking, Indexing &amp; Vectorization">自動切段、索引與向量化</strong>
+                    <small data-en="The system organizes document segments and builds a searchable knowledge base — no manual processing or complex configuration needed.">系統整理文件段落並建立可檢索知識庫，省去手動整理與複雜設定。</small>
                   </div>
                 </li>
                 <li>
@@ -3033,8 +3052,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c27c00" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-5"/></svg>
                   </span>
                   <div>
-                    <strong>啟動專屬知識 Agent</strong>
-                    <small>依知識庫建立可問答的 Agent，讓員工直接用自然語言查詢資料。</small>
+                    <strong data-en="Launch Dedicated Knowledge Agent">啟動專屬知識 Agent</strong>
+                    <small data-en="Build a Q&amp;A-capable Agent from your knowledge base so employees can query information directly in natural language.">依知識庫建立可問答的 Agent，讓員工直接用自然語言查詢資料。</small>
                   </div>
                 </li>
                 <li>
@@ -3042,8 +3061,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2a67d8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M7 12h10"/><path d="M10 17h4"/></svg>
                   </span>
                   <div>
-                    <strong>用 RAG 回答並附來源</strong>
-                    <small>回答會回到企業文件內容找依據，降低幻覺風險，也方便追溯引用段落。</small>
+                    <strong data-en="RAG Answers with Source Citations">用 RAG 回答並附來源</strong>
+                    <small data-en="Answers are grounded in enterprise document content, reducing hallucination risk and making it easy to trace cited passages.">回答會回到企業文件內容找依據，降低幻覺風險，也方便追溯引用段落。</small>
                   </div>
                 </li>
               </ul>
@@ -3057,28 +3076,28 @@
           <div class="aiso-layout">
             <div class="aiso-copy">
               <div class="section-kicker">OreintAI+AISO</div>
-              <h1 id="aiso-title">OrientAI 裝在 AISO 上，<br />企業 AI 才能真正擴大使用</h1>
+              <h1 id="aiso-title" data-en="OrientAI on AISO —&lt;br /&gt;Enterprise AI at Enterprise Scale">OrientAI 裝在 AISO 上，<br />企業 AI 才能真正擴大使用</h1>
               <p class="aiso-company">AISO Alliance · TPIsoftware × Phison</p>
-              <p class="aiso-tagline">主權 AI 基礎建設，讓 Agent 從試點走向全公司</p>
-              <p class="aiso-summary">
+              <p class="aiso-tagline" data-en="Sovereign AI Infrastructure — From Pilot to Company-Wide Deployment">主權 AI 基礎建設，讓 Agent 從試點走向全公司</p>
+              <p class="aiso-summary" data-en="OrientAI paired with AISO's AI SERVER series places the Agent Marketplace, knowledge base, RAG, model inference, and enterprise governance into a controlled, on-premise environment.">
                 OrientAI 搭配 AISO 的 AI SERVER 系列產品，將 Agent 市集、知識庫、RAG、模型推論與企業治理放在可控環境中運作。
               </p>
-              <p class="aiso-summary">
+              <p class="aiso-summary" data-en="When AI SERVER is equipped with Phison aiDAPTIV+ technology, memory extension and inference acceleration enable &lt;span class='aiso-highlight violet'&gt;more simultaneous users&lt;/span&gt;, &lt;span class='aiso-highlight orange'&gt;longer context retention&lt;/span&gt;, and support for &lt;span class='aiso-highlight violet'&gt;smarter, larger models&lt;/span&gt;.">
                 當 AI SERVER 搭載群聯 aiDAPTIV+ 技術時，可透過記憶體延展與推論加速，讓 <span class="aiso-highlight violet">更多使用者同時使用</span>、<span class="aiso-highlight orange">更長上下文被保留</span>，也能承載 <span class="aiso-highlight violet">更聰明、更大的模型</span>。
               </p>
               <div class="aiso-meta" aria-label="OrientAI 搭配 AISO 的效益">
-                <span>Concurrent 提高 5 倍</span>
-                <span>上下文視窗提升 2 倍</span>
-                <span>支援更大模型</span>
-                <span>資料留在企業內部</span>
+                <span data-en="5x Concurrent Users">Concurrent 提高 5 倍</span>
+                <span data-en="2x Context Window">上下文視窗提升 2 倍</span>
+                <span data-en="Larger Model Support">支援更大模型</span>
+                <span data-en="Data Stays On-Premises">資料留在企業內部</span>
               </div>
             </div>
 
             <div class="aiso-feature-panel" aria-label="OrientAI 搭配 AISO AI SERVER 的主要效益">
               <div class="aiso-panel-head">
                 <div>
-                  <span>AI SERVER 效益</span>
-                  <strong>從單一 Agent 到全公司使用，基礎建設要跟得上</strong>
+                  <span data-en="AI SERVER Benefits">AI SERVER 效益</span>
+                  <strong data-en="Infrastructure That Scales from a Single Agent to the Entire Enterprise">從單一 Agent 到全公司使用，基礎建設要跟得上</strong>
                 </div>
                 <div class="aiso-badge">aiDAPTIV+</div>
               </div>
@@ -3088,8 +3107,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5d48d8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   </span>
                   <div>
-                    <strong><span class="aiso-stat">5x</span>同時使用人數提高</strong>
-                    <small>讓更多員工同時使用知識 Agent、客服 Agent 與流程 Agent，適合從部門試點擴大到企業使用。</small>
+                    <strong data-en="&lt;span class='aiso-stat'&gt;5x&lt;/span&gt;Higher Concurrent Users"><span class="aiso-stat">5x</span>同時使用人數提高</strong>
+                    <small data-en="Enables more employees to simultaneously use knowledge agents, customer service agents, and workflow agents — ideal for scaling from department pilots to enterprise-wide deployment.">讓更多員工同時使用知識 Agent、客服 Agent 與流程 Agent，適合從部門試點擴大到企業使用。</small>
                   </div>
                 </li>
                 <li>
@@ -3097,8 +3116,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a596" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h11"/><path d="M6 21h12a2 2 0 0 0 2-2V7H8a2 2 0 0 0-2 2z"/></svg>
                   </span>
                   <div>
-                    <strong><span class="aiso-stat">2x</span>上下文視窗提升</strong>
-                    <small>AI 記憶更長，能讀取更多文件段落、歷史對話與任務背景，回答更完整也更貼近情境。</small>
+                    <strong data-en="&lt;span class='aiso-stat'&gt;2x&lt;/span&gt;Expanded Context Window"><span class="aiso-stat">2x</span>上下文視窗提升</strong>
+                    <small data-en="AI retains longer memory, reading more document segments, conversation history, and task context — for more complete and contextually accurate answers.">AI 記憶更長，能讀取更多文件段落、歷史對話與任務背景，回答更完整也更貼近情境。</small>
                   </div>
                 </li>
                 <li>
@@ -3106,8 +3125,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c27c00" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>
                   </span>
                   <div>
-                    <strong>最佳化成本效益</strong>
-                    <small>AISO 強調主權 AI 與成本控制，搭配 aiDAPTIV+ 可在地端以更可控的硬體成本承載 AI 任務。</small>
+                    <strong data-en="Optimized Cost Efficiency">最佳化成本效益</strong>
+                    <small data-en="AISO emphasizes sovereign AI and cost control. Paired with aiDAPTIV+, enterprises can run AI workloads on-premise at more manageable hardware costs.">AISO 強調主權 AI 與成本控制，搭配 aiDAPTIV+ 可在地端以更可控的硬體成本承載 AI 任務。</small>
                   </div>
                 </li>
                 <li>
@@ -3115,8 +3134,8 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2a67d8" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
                   </span>
                   <div>
-                    <strong>可以放更聰明、更大的模型</strong>
-                    <small>aiDAPTIV+ 透過快閃記憶體與 DRAM 擴展可用記憶體資源，降低模型受 GPU 記憶體容量限制的情況。</small>
+                    <strong data-en="Support Larger, More Capable Models">可以放更聰明、更大的模型</strong>
+                    <small data-en="aiDAPTIV+ expands available memory resources via flash memory and DRAM, reducing constraints from GPU memory capacity limitations.">aiDAPTIV+ 透過快閃記憶體與 DRAM 擴展可用記憶體資源，降低模型受 GPU 記憶體容量限制的情況。</small>
                   </div>
                 </li>
               </ul>
@@ -3126,28 +3145,28 @@
           <div class="aiso-proof-grid" aria-label="Phison aiDAPTIV+ 圖片資料">
             <article class="aiso-proof-card">
               <div>
-                <strong>經濟實惠</strong>
-                <small>aiDAPTIV+ 讓企業以更可控的地端硬體成本承載 AI 任務，降低長期依賴全 GPU 或雲端 GPU 的支出，同時讓資料保留在企業內部。</small>
+                <strong data-en="Cost-Effective">經濟實惠</strong>
+                <small data-en="aiDAPTIV+ enables enterprises to run AI workloads at lower, more manageable on-premise hardware costs, reducing long-term reliance on full GPU or cloud GPU spending while keeping data within the enterprise.">aiDAPTIV+ 讓企業以更可控的地端硬體成本承載 AI 任務，降低長期依賴全 GPU 或雲端 GPU 的支出，同時讓資料保留在企業內部。</small>
               </div>
               <img src="./phison-aidaptiv-cost.jpeg" alt="Phison aiDAPTIV+ 30 個月花費比較圖" loading="lazy" />
             </article>
             <article class="aiso-proof-card">
               <div>
-                <strong>加強推論</strong>
-                <small>aiDAPTIV+ 能透過加速首次召回 Token 的時間來實現更快速的回應，提升推論使用體驗，並同時延長 Token 長度，提供更豐富的上下文，從而生成更長且更準確的回答。</small>
+                <strong data-en="Enhanced Inference">加強推論</strong>
+                <small data-en="aiDAPTIV+ accelerates time-to-first-token for faster responses, improves inference experience, and extends Token length to provide richer context for longer, more accurate answers.">aiDAPTIV+ 能透過加速首次召回 Token 的時間來實現更快速的回應，提升推論使用體驗，並同時延長 Token 長度，提供更豐富的上下文，從而生成更長且更準確的回答。</small>
               </div>
               <img src="./phison-aidaptiv-inference-new.png" alt="Phison aiDAPTIV+ 加強推論與 Token 長度示意圖" loading="lazy" />
             </article>
             <article class="aiso-proof-card">
               <div>
-                <strong>釋放模型無限潛能</strong>
-                <small>aiDAPTIV+ 透過整合快閃記憶體與 DRAM，突破 GPU 顯示卡 HBM 與 GDDR 記憶體容量限制，讓 AISO AI SERVER 能承載更聰明、更大規模的 AI 模型。企業可以用更實惠的成本，在地端運行過去只有大型企業和雲端供應商才能負擔的高階模型，支援更複雜的 Agent 應用場景。</small>
+                <strong data-en="Unleash Model Potential">釋放模型無限潛能</strong>
+                <small data-en="aiDAPTIV+ integrates flash memory and DRAM to break through HBM and GDDR memory limits, enabling AISO AI SERVER to run smarter, larger-scale AI models. Enterprises can deploy high-end models on-premise at a fraction of the cost, supporting more complex Agent scenarios.">aiDAPTIV+ 透過整合快閃記憶體與 DRAM，突破 GPU 顯示卡 HBM 與 GDDR 記憶體容量限制，讓 AISO AI SERVER 能承載更聰明、更大規模的 AI 模型。企業可以用更實惠的成本，在地端運行過去只有大型企業和雲端供應商才能負擔的高階模型，支援更複雜的 Agent 應用場景。</small>
               </div>
               <img src="./phison-aidaptiv-model-cropped.png" alt="Phison aiDAPTIV+ 釋放模型無限潛能示意圖" loading="lazy" />
             </article>
           </div>
           <div style="display:flex;justify-content:center;margin-top:60px;">
-            <a class="button secondary" href="https://phisonaidaptiv.com/zh-tw/" target="_blank" rel="noopener">了解 Phison aiDAPTIV+</a>
+            <a class="button secondary" href="https://phisonaidaptiv.com/zh-tw/" target="_blank" rel="noopener" data-en="Learn About Phison aiDAPTIV+">了解 Phison aiDAPTIV+</a>
           </div>
         </div>
       </section>
@@ -3156,7 +3175,7 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">PRODUCT SHOWCASE</div>
-            <h2>OrientAI 能幫企業做什麼？</h2>
+            <h2 data-en="What Can OrientAI Do for Your Enterprise?">OrientAI 能幫企業做什麼？</h2>
           </div>
 
           <div class="showcase-row">
@@ -3164,13 +3183,13 @@
               <img src="../知識庫助手.gif" alt="多種 AI Agent 啟用示意" loading="lazy" />
             </div>
             <div class="showcase-text">
-              <span class="showcase-label">多種 AI Agent</span>
-              <h3>企業安全啟用各種 AI Agent，知識庫、文件處理、客服助理一站搞定</h3>
-              <p>OrientAI 讓企業在可控權限與治理機制下，快速啟用知識庫助理、客服助理、流程助理與部門專屬 Agent。從文件、FAQ 到 SOP 與任務流程，都能轉化為可被管理、可被追蹤的 AI 能力。</p>
+              <span class="showcase-label" data-en="Multiple AI Agents">多種 AI Agent</span>
+              <h3 data-en="Securely Launch Multiple AI Agents — Knowledge Base, Documents &amp; Customer Service in One Platform">企業安全啟用各種 AI Agent，知識庫、文件處理、客服助理一站搞定</h3>
+              <p data-en="OrientAI enables enterprises to rapidly deploy knowledge assistants, customer service agents, workflow agents, and department-specific agents under controlled permissions and governance. Everything from documents and FAQs to SOPs and task workflows can be converted into manageable, trackable AI capabilities.">OrientAI 讓企業在可控權限與治理機制下，快速啟用知識庫助理、客服助理、流程助理與部門專屬 Agent。從文件、FAQ 到 SOP 與任務流程，都能轉化為可被管理、可被追蹤的 AI 能力。</p>
               <ul class="feature-list">
-                <li>知識庫助理、客服助理、多種部門 Agent 可快速上線</li>
-                <li>每個 Agent 都能納入權限、審計與使用紀錄管理</li>
-                <li>知識庫場景支援文件引用、資料隔離與安全問答</li>
+                <li data-en="Knowledge base, customer service, and multi-department agents can be deployed quickly">知識庫助理、客服助理、多種部門 Agent 可快速上線</li>
+                <li data-en="Every Agent can be brought under permission, audit, and usage tracking management">每個 Agent 都能納入權限、審計與使用紀錄管理</li>
+                <li data-en="Knowledge base scenarios support document citation, data isolation, and secure Q&amp;A">知識庫場景支援文件引用、資料隔離與安全問答</li>
               </ul>
             </div>
           </div>
@@ -3181,12 +3200,12 @@
             </div>
             <div class="showcase-text">
               <span class="showcase-label">Vibe Coding</span>
-              <h3>讓業務需求當天變成可用的應用工具</h3>
-              <p>業務人員以自然語言描述需求，OrientAI 在受控環境生成表單、查詢介面、報告產生器或流程觸發工具。IT 統一審核版本並整合到企業系統，不需等待開發排程，需求當天即可成為可用工具。</p>
+              <h3 data-en="Turn Business Needs into Usable Tools the Same Day">讓業務需求當天變成可用的應用工具</h3>
+              <p data-en="Business users describe their needs in natural language. OrientAI generates forms, query interfaces, report generators, or workflow trigger tools in a controlled environment. IT reviews and integrates them into enterprise systems — no development backlog, ready the same day.">業務人員以自然語言描述需求，OrientAI 在受控環境生成表單、查詢介面、報告產生器或流程觸發工具。IT 統一審核版本並整合到企業系統，不需等待開發排程，需求當天即可成為可用工具。</p>
               <ul class="feature-list">
-                <li>No-code 工具生成，業務自助使用</li>
-                <li>IT 統一版本審核與部署管理</li>
-                <li>生成工具可嵌入企業入口或工作流程</li>
+                <li data-en="No-code tool generation, self-service for business users">No-code 工具生成，業務自助使用</li>
+                <li data-en="IT manages unified version review and deployment">IT 統一版本審核與部署管理</li>
+                <li data-en="Generated tools can be embedded into enterprise portals or workflows">生成工具可嵌入企業入口或工作流程</li>
               </ul>
             </div>
           </div>
@@ -3196,13 +3215,13 @@
               <img src="../架構說明.gif" alt="Agent 治理架構說明" loading="lazy" />
             </div>
             <div class="showcase-text">
-              <span class="showcase-label">Agent 治理架構</span>
-              <h3>四層 AI 價值鏈，從模型到 Agent 全面納管</h3>
-              <p>LLM 模型、MCP 工具、Skills 與 AI Agent 四層架構，OrientAI 在每一層建立授權、成本、稽核與版本管理。搭配 AI Server 的私有部署，企業可完整掌握每個 Agent 的運作範圍、工具調用軌跡與資源消耗。</p>
+              <span class="showcase-label" data-en="Agent Governance Architecture">Agent 治理架構</span>
+              <h3 data-en="Four-Layer AI Value Chain — Governance Across Models to Agents">四層 AI 價值鏈，從模型到 Agent 全面納管</h3>
+              <p data-en="LLM models, MCP tools, Skills, and AI Agents form a four-layer architecture. OrientAI establishes authorization, cost control, audit, and version management at every layer. With AI Server private deployment, enterprises gain complete visibility into each Agent's operational scope, tool call trail, and resource consumption.">LLM 模型、MCP 工具、Skills 與 AI Agent 四層架構，OrientAI 在每一層建立授權、成本、稽核與版本管理。搭配 AI Server 的私有部署，企業可完整掌握每個 Agent 的運作範圍、工具調用軌跡與資源消耗。</p>
               <ul class="feature-list">
-                <li>四層架構各自獨立授權與配額設定</li>
-                <li>工具調用參數完整留存，可搜尋可匯出</li>
-                <li>AI Server 支援私有雲與地端混合部署</li>
+                <li data-en="Each layer has independent authorization and quota configuration">四層架構各自獨立授權與配額設定</li>
+                <li data-en="Tool call parameters are fully retained, searchable, and exportable">工具調用參數完整留存，可搜尋可匯出</li>
+                <li data-en="AI Server supports private cloud and on-premise hybrid deployment">AI Server 支援私有雲與地端混合部署</li>
               </ul>
             </div>
           </div>
@@ -3214,11 +3233,11 @@
           <div class="video-section-layout">
             <div>
               <div class="section-kicker">FULL PRODUCT DEMO</div>
-              <h2>三分鐘完整體驗 OrientAI</h2>
-              <p>從知識庫助手、Agent 市集到 Vibe Coding，一支影片帶你完整體驗企業 Agentic AI 平台的核心流程，以及 AI Server 如何讓整個系統跑在企業可控的環境中。</p>
+              <h2 data-en="Experience OrientAI in 3 Minutes">三分鐘完整體驗 OrientAI</h2>
+              <p data-en="From knowledge base assistants and Agent Marketplace to Vibe Coding — one video walks you through the core workflows of an enterprise Agentic AI platform, and how AI Server keeps everything running in a controlled enterprise environment.">從知識庫助手、Agent 市集到 Vibe Coding，一支影片帶你完整體驗企業 Agentic AI 平台的核心流程，以及 AI Server 如何讓整個系統跑在企業可控的環境中。</p>
               <button class="button primary" onclick="openVideoModal()" style="margin-top:20px;border:none;cursor:pointer;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                觀看完整 Demo（3 分鐘）
+                <span data-en="Watch Full Demo (3 min)">觀看完整 Demo（3 分鐘）</span>
               </button>
             </div>
             <div class="video-thumb-wrap" onclick="openVideoModal()" role="button" tabindex="0" aria-label="觀看完整產品 Demo">
@@ -3235,25 +3254,25 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">AISO SERVER</div>
-            <h2>把 AI Agent 跑在企業完全可控的環境中</h2>
-            <p>藉由 AISO，地端啟用安全可控的 AI Agent，提升企業生產力。</p>
+            <h2 data-en="Run AI Agents in a Fully Controlled Enterprise Environment">把 AI Agent 跑在企業完全可控的環境中</h2>
+            <p data-en="With AISO, deploy secure and controllable AI Agents on-premise to boost enterprise productivity.">藉由 AISO，地端啟用安全可控的 AI Agent，提升企業生產力。</p>
           </div>
           <div class="server-grid">
             <article class="server-card">
-              <strong>資料主權</strong>
-              <span>敏感資料、企業文件與任務紀錄保留在企業指定環境，支援私有雲與地端部署。</span>
+              <strong data-en="Data Sovereignty">資料主權</strong>
+              <span data-en="Sensitive data, enterprise documents, and task logs stay in your designated environment, supporting private cloud and on-premise deployment.">敏感資料、企業文件與任務紀錄保留在企業指定環境，支援私有雲與地端部署。</span>
             </article>
             <article class="server-card">
-              <strong>成本可控</strong>
-              <span>以部門、專案、Agent 設定 Token 預算與配額，避免 Shadow AI 與重複消耗。</span>
+              <strong data-en="Cost Control">成本可控</strong>
+              <span data-en="Set Token budgets and quotas by department, project, and Agent to prevent Shadow AI and redundant consumption.">以部門、專案、Agent 設定 Token 預算與配額，避免 Shadow AI 與重複消耗。</span>
             </article>
             <article class="server-card">
-              <strong>即插即用</strong>
-              <span>搭配 OrientAI 預建 Agent、知識庫與工具流程，縮短從 PoC 到正式上線的距離。</span>
+              <strong data-en="Plug &amp; Play">即插即用</strong>
+              <span data-en="With OrientAI's pre-built Agents, knowledge bases, and tool workflows, shorten the path from PoC to production.">搭配 OrientAI 預建 Agent、知識庫與工具流程，縮短從 PoC 到正式上線的距離。</span>
             </article>
             <article class="server-card">
-              <strong>彈性模型</strong>
-              <span>依任務選擇雲端模型、地端模型或混合路由，平衡效能、成本與資安要求。</span>
+              <strong data-en="Flexible Model Routing">彈性模型</strong>
+              <span data-en="Choose cloud models, on-premise models, or hybrid routing by task to balance performance, cost, and security requirements.">依任務選擇雲端模型、地端模型或混合路由，平衡效能、成本與資安要求。</span>
             </article>
           </div>
         </div>
@@ -3263,21 +3282,21 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">WHY ENTERPRISE AGENTS NEED GOVERNANCE</div>
-            <h2>企業不缺 AI，缺的是 Agent 治理</h2>
-            <p>AI Gateway 2.0 從模型通道升級為 Agent 權限、成本與審計的控制塔。</p>
+            <h2 data-en="Enterprises Don't Lack AI — They Lack Agent Governance">企業不缺 AI，缺的是 Agent 治理</h2>
+            <p data-en="AI Gateway 2.0 upgrades from a model channel to a control tower for Agent permissions, costs, and audits.">AI Gateway 2.0 從模型通道升級為 Agent 權限、成本與審計的控制塔。</p>
           </div>
           <div class="pain-grid">
             <article class="pain-card">
-              <h3>Shadow AI 與資源浪費</h3>
-              <p>員工各自使用未審核工具，企業看不到哪些 Agent 被建立、哪些資料被使用、哪些成本正在發生。</p>
+              <h3 data-en="Shadow AI &amp; Resource Waste">Shadow AI 與資源浪費</h3>
+              <p data-en="Employees use unapproved tools independently. Enterprises can't see which Agents were created, which data was accessed, or what costs are being incurred.">員工各自使用未審核工具，企業看不到哪些 Agent 被建立、哪些資料被使用、哪些成本正在發生。</p>
             </article>
             <article class="pain-card">
-              <h3>資料外洩與權限失控</h3>
-              <p>AI Agent 一旦具備讀寫資料庫、呼叫 API 與操作系統的能力，就必須有統一授權、審批、遮罩與稽核。</p>
+              <h3 data-en="Data Leaks &amp; Permission Sprawl">資料外洩與權限失控</h3>
+              <p data-en="Once AI Agents have the ability to read/write databases, call APIs, and operate systems, unified authorization, approval, masking, and auditing become mandatory.">AI Agent 一旦具備讀寫資料庫、呼叫 API 與操作系統的能力，就必須有統一授權、審批、遮罩與稽核。</p>
             </article>
             <article class="pain-card">
-              <h3>業務單位難以自助啟用</h3>
-              <p>人資、財務、客服、行銷與營運團隊知道問題在哪，卻缺少能安全領用 Agent 與工具的友善入口。</p>
+              <h3 data-en="Business Units Struggle to Self-Serve">業務單位難以自助啟用</h3>
+              <p data-en="HR, finance, customer service, marketing, and operations teams know where the problems are, but lack a friendly portal to safely access approved Agents and tools.">人資、財務、客服、行銷與營運團隊知道問題在哪，卻缺少能安全領用 Agent 與工具的友善入口。</p>
             </article>
           </div>
         </div>
@@ -3287,21 +3306,21 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">ORIENTAI PRODUCT PILLARS</div>
-            <h2>OrientAI 的三個主打特色</h2>
-            <p>企業級安全治理、LLM 模型聰明調度、市集化管理，讓 AI Agent 安全可控地為全公司創造價值。</p>
+            <h2 data-en="Three Core Pillars of OrientAI">OrientAI 的三個主打特色</h2>
+            <p data-en="Enterprise-grade security governance, intelligent LLM model routing, and marketplace management — enabling AI Agents to safely and controllably create value across the entire organization.">企業級安全治理、LLM 模型聰明調度、市集化管理，讓 AI Agent 安全可控地為全公司創造價值。</p>
           </div>
           <div class="success-grid">
             <article class="success-card">
-              <h3>企業級安全治理</h3>
-              <p>透過 AI Gateway 與 RBAC 角色授權，讓 AI Agent 只在企業允許的範圍內自主運作。審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，Shadow AI 零風險。</p>
+              <h3 data-en="Enterprise-Grade Security Governance">企業級安全治理</h3>
+              <p data-en="Through AI Gateway and RBAC role-based authorization, AI Agents operate only within enterprise-approved boundaries. Audit logs and Token quotas ensure full governance — every call is traceable, zero Shadow AI risk.">透過 AI Gateway 與 RBAC 角色授權，讓 AI Agent 只在企業允許的範圍內自主運作。審計日誌與 Token 配額全程納管，每次呼叫都可追蹤，Shadow AI 零風險。</p>
             </article>
             <article class="success-card">
-              <h3>LLM 模型聰明調度</h3>
-              <p>依據工作類型、資料敏感度與成本目標，AI 自動判斷由哪個模型處理任務，聰明駕馭雲端與地端模型，讓每次 AI 任務都兼顧品質、安全與成本效益。</p>
+              <h3 data-en="Intelligent LLM Model Routing">LLM 模型聰明調度</h3>
+              <p data-en="Based on task type, data sensitivity, and cost objectives, AI automatically determines which model handles the task — intelligently orchestrating cloud and on-premise models for quality, security, and cost efficiency.">依據工作類型、資料敏感度與成本目標，AI 自動判斷由哪個模型處理任務，聰明駕馭雲端與地端模型，讓每次 AI 任務都兼顧品質、安全與成本效益。</p>
             </article>
             <article class="success-card">
-              <h3>市集化管理</h3>
-              <p>Marketplace 讓企業員工視覺化選擇需要的 AI Agent，從知識庫助理、客服助理到部門專屬助理都能快速啟用，讓智慧體協助員工釋放生產力與創造力。</p>
+              <h3 data-en="Marketplace Management">市集化管理</h3>
+              <p data-en="The Marketplace lets enterprise employees visually select the AI Agents they need — from knowledge base assistants and customer service agents to department-specific assistants — helping teams unlock productivity and creativity.">Marketplace 讓企業員工視覺化選擇需要的 AI Agent，從知識庫助理、客服助理到部門專屬助理都能快速啟用，讓智慧體協助員工釋放生產力與創造力。</p>
             </article>
           </div>
         </div>
@@ -3311,8 +3330,8 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">AGENT MARKETPLACE</div>
-            <h2>讓 AI 技術成為企業可領用的服務貨架</h2>
-            <p>在市集找到合適的 Agent，送出申請，核准後即可在受控環境執行任務。</p>
+            <h2 data-en="Make AI Technology a Self-Service Shelf for Your Enterprise">讓 AI 技術成為企業可領用的服務貨架</h2>
+            <p data-en="Find the right Agent in the marketplace, submit a request, and run tasks in a controlled environment after approval.">在市集找到合適的 Agent，送出申請，核准後即可在受控環境執行任務。</p>
           </div>
           <div class="product-layout">
             <div class="product-menu" aria-label="產品模組">
@@ -3325,101 +3344,101 @@
             <div>
               <article class="product-detail active" id="tab-marketplace">
                 <div class="detail-head">
-                  <h3>發現、試用、申請、核准、啟用</h3>
+                  <h3 data-en="Discover, Trial, Request, Approve, Activate">發現、試用、申請、核准、啟用</h3>
                   <span class="detail-tag">Controlled Self-service</span>
                 </div>
-                <p>OrientAI Agent 市集把底層工具、資料權限、模型資源與使用成本封裝成清楚的服務卡片。使用者能快速看懂 Agent 能做什麼；IT 與主管則保留核准、配額、追蹤與回收的完整控制權，任何啟用都有跡可查。</p>
+                <p data-en="The OrientAI Agent Marketplace packages tools, data permissions, model resources, and usage costs into clear service cards. Users can quickly understand what each Agent does; IT and managers retain full control over approval, quotas, tracking, and revocation — every activation is traceable.">OrientAI Agent 市集把底層工具、資料權限、模型資源與使用成本封裝成清楚的服務卡片。使用者能快速看懂 Agent 能做什麼；IT 與主管則保留核准、配額、追蹤與回收的完整控制權，任何啟用都有跡可查。</p>
                 <div class="workflow">
-                  <div class="workflow-step"><span>01</span><strong>瀏覽圖卡式 Agent 服務</strong></div>
-                  <div class="workflow-step"><span>02</span><strong>確認資料與工具權限</strong></div>
-                  <div class="workflow-step"><span>03</span><strong>主管核准並核發 Token</strong></div>
-                  <div class="workflow-step"><span>04</span><strong>安全執行並留存日誌</strong></div>
+                  <div class="workflow-step"><span>01</span><strong data-en="Browse Card-Style Agent Services">瀏覽圖卡式 Agent 服務</strong></div>
+                  <div class="workflow-step"><span>02</span><strong data-en="Confirm Data &amp; Tool Permissions">確認資料與工具權限</strong></div>
+                  <div class="workflow-step"><span>03</span><strong data-en="Manager Approves &amp; Grants Token">主管核准並核發 Token</strong></div>
+                  <div class="workflow-step"><span>04</span><strong data-en="Secure Execution &amp; Log Retention">安全執行並留存日誌</strong></div>
                 </div>
                 <ul class="feature-list">
-                  <li>圖卡式服務瀏覽與分類篩選</li>
-                  <li>Agent 能力與資料權限透明說明</li>
-                  <li>一站式申請、核准、啟用流程</li>
-                  <li>停用後自動回收資源與 Token 配額</li>
+                  <li data-en="Card-style service browsing with category filters">圖卡式服務瀏覽與分類篩選</li>
+                  <li data-en="Transparent disclosure of Agent capabilities and data permissions">Agent 能力與資料權限透明說明</li>
+                  <li data-en="One-stop request, approval, and activation workflow">一站式申請、核准、啟用流程</li>
+                  <li data-en="Auto-reclaim resources and Token quotas upon deactivation">停用後自動回收資源與 Token 配額</li>
                 </ul>
               </article>
 
               <article class="product-detail" id="tab-approval">
                 <div class="detail-head">
-                  <h3>申請與核准的完整受控閉環</h3>
+                  <h3 data-en="Complete Controlled Loop for Requests and Approvals">申請與核准的完整受控閉環</h3>
                   <span class="detail-tag">Zero-trust Access</span>
                 </div>
-                <p>企業 AI Agent 的啟用需要明確的授權機制，不能讓任何人自由取用敏感工具與資料。Access Approval 提供標準化申請表單、多層核准鏈與自動到期回收，讓使用者能自助申請、主管有效把關，每筆授權都有完整版本紀錄可供稽核，不留授權黑洞。</p>
+                <p data-en="Enterprise AI Agent activation requires explicit authorization. Access Approval provides standardized request forms, multi-tier approval chains, and automatic expiry revocation — allowing users to self-serve while managers effectively gatekeep. Every authorization has a complete version record for audit, leaving no authorization black holes.">企業 AI Agent 的啟用需要明確的授權機制，不能讓任何人自由取用敏感工具與資料。Access Approval 提供標準化申請表單、多層核准鏈與自動到期回收，讓使用者能自助申請、主管有效把關，每筆授權都有完整版本紀錄可供稽核，不留授權黑洞。</p>
                 <div class="workflow">
-                  <div class="workflow-step"><span>01</span><strong>使用者提交 Agent 申請單</strong></div>
-                  <div class="workflow-step"><span>02</span><strong>政策引擎自動初篩</strong></div>
-                  <div class="workflow-step"><span>03</span><strong>主管人工核准或退回</strong></div>
-                  <div class="workflow-step"><span>04</span><strong>啟用並設定有效期限與配額</strong></div>
+                  <div class="workflow-step"><span>01</span><strong data-en="User Submits Agent Request">使用者提交 Agent 申請單</strong></div>
+                  <div class="workflow-step"><span>02</span><strong data-en="Policy Engine Auto-Screens">政策引擎自動初篩</strong></div>
+                  <div class="workflow-step"><span>03</span><strong data-en="Manager Approves or Rejects">主管人工核准或退回</strong></div>
+                  <div class="workflow-step"><span>04</span><strong data-en="Activate with Expiry &amp; Quota">啟用並設定有效期限與配額</strong></div>
                 </div>
                 <ul class="feature-list">
-                  <li>角色與部門層級動態授權</li>
-                  <li>申請單版本與審核歷程完整記錄</li>
-                  <li>到期自動回收存取權限</li>
-                  <li>支援多層核准鏈與代理審核</li>
+                  <li data-en="Dynamic authorization by role and department">角色與部門層級動態授權</li>
+                  <li data-en="Complete record of request versions and review history">申請單版本與審核歷程完整記錄</li>
+                  <li data-en="Auto-revoke access permissions upon expiry">到期自動回收存取權限</li>
+                  <li data-en="Support for multi-tier approval chains and delegated review">支援多層核准鏈與代理審核</li>
                 </ul>
               </article>
 
               <article class="product-detail" id="tab-mcp">
                 <div class="detail-head">
-                  <h3>企業工具封裝，讓 Agent 安全執行任務</h3>
+                  <h3 data-en="Enterprise Tool Encapsulation for Secure Agent Execution">企業工具封裝，讓 Agent 安全執行任務</h3>
                   <span class="detail-tag">Tool Governance</span>
                 </div>
-                <p>MCP Tool Gateway 把 ERP、CRM、資料庫、API 與外部 SaaS 封裝成受控服務工具。Agent 呼叫工具時，系統自動驗證授權、記錄調用參數、執行輸出遮罩，並在每次調用後留下完整稽核軌跡，讓企業工具串接同時兼顧效率與安全合規。</p>
+                <p data-en="MCP Tool Gateway wraps ERP, CRM, databases, APIs, and external SaaS into controlled service tools. When an Agent calls a tool, the system automatically verifies authorization, records call parameters, applies output masking, and leaves a complete audit trail — balancing efficiency and security compliance.">MCP Tool Gateway 把 ERP、CRM、資料庫、API 與外部 SaaS 封裝成受控服務工具。Agent 呼叫工具時，系統自動驗證授權、記錄調用參數、執行輸出遮罩，並在每次調用後留下完整稽核軌跡，讓企業工具串接同時兼顧效率與安全合規。</p>
                 <div class="workflow">
-                  <div class="workflow-step"><span>01</span><strong>工具上架與分類管理</strong></div>
-                  <div class="workflow-step"><span>02</span><strong>設定工具層級存取政策</strong></div>
-                  <div class="workflow-step"><span>03</span><strong>Agent 呼叫時即時驗證授權</strong></div>
-                  <div class="workflow-step"><span>04</span><strong>留存完整調用參數紀錄</strong></div>
+                  <div class="workflow-step"><span>01</span><strong data-en="Tool Onboarding &amp; Category Management">工具上架與分類管理</strong></div>
+                  <div class="workflow-step"><span>02</span><strong data-en="Configure Tool-Level Access Policies">設定工具層級存取政策</strong></div>
+                  <div class="workflow-step"><span>03</span><strong data-en="Real-Time Authorization Check at Agent Call">Agent 呼叫時即時驗證授權</strong></div>
+                  <div class="workflow-step"><span>04</span><strong data-en="Retain Complete Call Parameter Records">留存完整調用參數紀錄</strong></div>
                 </div>
                 <ul class="feature-list">
-                  <li>MCP 標準協議與自訂工具均支援</li>
-                  <li>API、Lambda、SaaS 統一串接入口</li>
-                  <li>敏感欄位自動遮罩與過濾規則</li>
-                  <li>工具版本管理與快速回溯能力</li>
+                  <li data-en="Supports both MCP standard protocol and custom tools">MCP 標準協議與自訂工具均支援</li>
+                  <li data-en="Unified integration entry for API, Lambda, and SaaS">API、Lambda、SaaS 統一串接入口</li>
+                  <li data-en="Auto-masking and filtering rules for sensitive fields">敏感欄位自動遮罩與過濾規則</li>
+                  <li data-en="Tool version management with rapid rollback capability">工具版本管理與快速回溯能力</li>
                 </ul>
               </article>
 
               <article class="product-detail" id="tab-token">
                 <div class="detail-head">
-                  <h3>部門、專案與 Agent 分層成本治理</h3>
+                  <h3 data-en="Hierarchical Cost Governance by Department, Project &amp; Agent">部門、專案與 Agent 分層成本治理</h3>
                   <span class="detail-tag">Cost Visibility</span>
                 </div>
-                <p>Token Budget 讓 IT 與財務可依部門、專案或個別 Agent 設定 Token 配額。系統即時監控消耗、觸發告警並自動限流，讓企業在 AI 使用量快速成長時仍能清楚掌握成本分佈，有效避免 Shadow AI 帶來的隱性支出與資源浪費。</p>
+                <p data-en="Token Budget lets IT and finance set Token quotas by department, project, or individual Agent. The system monitors consumption in real time, triggers alerts, and auto-throttles — keeping cost visibility clear as AI usage scales, and preventing hidden Shadow AI spending.">Token Budget 讓 IT 與財務可依部門、專案或個別 Agent 設定 Token 配額。系統即時監控消耗、觸發告警並自動限流，讓企業在 AI 使用量快速成長時仍能清楚掌握成本分佈，有效避免 Shadow AI 帶來的隱性支出與資源浪費。</p>
                 <div class="workflow">
-                  <div class="workflow-step"><span>01</span><strong>依部門與專案設定配額</strong></div>
-                  <div class="workflow-step"><span>02</span><strong>即時監控 Token 消耗</strong></div>
-                  <div class="workflow-step"><span>03</span><strong>觸發告警或自動限流</strong></div>
-                  <div class="workflow-step"><span>04</span><strong>定期產生成本分析報告</strong></div>
+                  <div class="workflow-step"><span>01</span><strong data-en="Set Quotas by Department &amp; Project">依部門與專案設定配額</strong></div>
+                  <div class="workflow-step"><span>02</span><strong data-en="Real-Time Token Consumption Monitoring">即時監控 Token 消耗</strong></div>
+                  <div class="workflow-step"><span>03</span><strong data-en="Trigger Alerts or Auto-Throttle">觸發告警或自動限流</strong></div>
+                  <div class="workflow-step"><span>04</span><strong data-en="Generate Periodic Cost Analysis Reports">定期產生成本分析報告</strong></div>
                 </div>
                 <ul class="feature-list">
-                  <li>多維度配額設定：部門、專案、Agent 三層</li>
-                  <li>即時消耗儀表板與使用趨勢圖</li>
-                  <li>可自訂閾值告警與自動限流規則</li>
-                  <li>月度成本明細一鍵匯出</li>
+                  <li data-en="Multi-dimensional quota settings: department, project, and Agent levels">多維度配額設定：部門、專案、Agent 三層</li>
+                  <li data-en="Real-time consumption dashboard and usage trend charts">即時消耗儀表板與使用趨勢圖</li>
+                  <li data-en="Customizable threshold alerts and auto-throttle rules">可自訂閾值告警與自動限流規則</li>
+                  <li data-en="One-click export of monthly cost details">月度成本明細一鍵匯出</li>
                 </ul>
               </article>
 
               <article class="product-detail" id="tab-audit">
                 <div class="detail-head">
-                  <h3>完整 Agent 工具調用與決策紀錄</h3>
+                  <h3 data-en="Complete Agent Tool Call &amp; Decision Records">完整 Agent 工具調用與決策紀錄</h3>
                   <span class="detail-tag">Compliance Ready</span>
                 </div>
-                <p>Audit Trail 完整記錄每一次 Agent 工具調用的輸入參數、模型決策依據與輸出結果，並提供關鍵字搜尋與時間軸過濾功能。稽核人員可快速定位異常操作，合規報告可一鍵匯出，滿足金融、法遵與公部門的資料治理與監管要求。</p>
+                <p data-en="Audit Trail fully records the input parameters, model decision basis, and output results of every Agent tool call, with keyword search and timeline filtering. Auditors can quickly locate anomalies, and compliance reports can be exported with one click — meeting financial, legal, and public sector governance requirements.">Audit Trail 完整記錄每一次 Agent 工具調用的輸入參數、模型決策依據與輸出結果，並提供關鍵字搜尋與時間軸過濾功能。稽核人員可快速定位異常操作，合規報告可一鍵匯出，滿足金融、法遵與公部門的資料治理與監管要求。</p>
                 <div class="workflow">
-                  <div class="workflow-step"><span>01</span><strong>自動記錄工具調用參數</strong></div>
-                  <div class="workflow-step"><span>02</span><strong>保存模型輸入與輸出全文</strong></div>
-                  <div class="workflow-step"><span>03</span><strong>關鍵字與時間軸搜尋</strong></div>
-                  <div class="workflow-step"><span>04</span><strong>匯出合規稽核報告</strong></div>
+                  <div class="workflow-step"><span>01</span><strong data-en="Auto-Record Tool Call Parameters">自動記錄工具調用參數</strong></div>
+                  <div class="workflow-step"><span>02</span><strong data-en="Preserve Full Model Input &amp; Output">保存模型輸入與輸出全文</strong></div>
+                  <div class="workflow-step"><span>03</span><strong data-en="Keyword &amp; Timeline Search">關鍵字與時間軸搜尋</strong></div>
+                  <div class="workflow-step"><span>04</span><strong data-en="Export Compliance Audit Reports">匯出合規稽核報告</strong></div>
                 </div>
                 <ul class="feature-list">
-                  <li>不可篡改的完整調用紀錄保存</li>
-                  <li>異常行為即時偵測與告警機制</li>
-                  <li>跨 Agent 操作關聯追蹤與比對</li>
-                  <li>支援多種法規合規報告格式匯出</li>
+                  <li data-en="Tamper-proof complete call record retention">不可篡改的完整調用紀錄保存</li>
+                  <li data-en="Real-time anomaly detection and alert mechanism">異常行為即時偵測與告警機制</li>
+                  <li data-en="Cross-Agent operation correlation tracking and comparison">跨 Agent 操作關聯追蹤與比對</li>
+                  <li data-en="Support for multiple regulatory compliance report format exports">支援多種法規合規報告格式匯出</li>
                 </ul>
               </article>
             </div>
@@ -3428,22 +3447,22 @@
             <article class="marketplace-step">
               <span>1</span>
               <strong>Find</strong>
-              <p>找到能完成工作任務的 Agent、Skill 或 MCP 工具。</p>
+              <p data-en="Find the Agent, Skill, or MCP tool that can complete your work tasks.">找到能完成工作任務的 Agent、Skill 或 MCP 工具。</p>
             </article>
             <article class="marketplace-step">
               <span>2</span>
               <strong>Match</strong>
-              <p>比對所需資料、權限、模型與 AI Server 資源。</p>
+              <p data-en="Match required data, permissions, models, and AI Server resources.">比對所需資料、權限、模型與 AI Server 資源。</p>
             </article>
             <article class="marketplace-step">
               <span>3</span>
               <strong>Approve</strong>
-              <p>主管或系統依政策核准，建立可追蹤的授權。</p>
+              <p data-en="Managers or the system approve based on policy, creating trackable authorizations.">主管或系統依政策核准，建立可追蹤的授權。</p>
             </article>
             <article class="marketplace-step">
               <span>4</span>
               <strong>Deploy</strong>
-              <p>Agent 在受控環境執行，留下成本、工具與審計紀錄。</p>
+              <p data-en="Agent runs in a controlled environment, logging cost, tool use, and audit records.">Agent 在受控環境執行，留下成本、工具與審計紀錄。</p>
             </article>
           </div>
         </div>
@@ -3453,57 +3472,57 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">CORE ADVANTAGES</div>
-            <h2>AI 價值鏈的每一層，都需要企業級納管</h2>
+            <h2 data-en="Every Layer of the AI Value Chain Needs Enterprise-Grade Governance">AI 價值鏈的每一層，都需要企業級納管</h2>
           </div>
           <div class="advantage-grid">
             <article class="advantage-card">
-              <h3>企業權限與安全</h3>
-              <p>從使用者、部門、Agent 到工具層級建立授權，搭配遮罩、審核與審計日誌，降低資料外洩風險。</p>
+              <h3 data-en="Enterprise Permissions &amp; Security">企業權限與安全</h3>
+              <p data-en="Establish authorization from user, department, Agent, to tool level — with masking, review, and audit logs to reduce data leakage risk.">從使用者、部門、Agent 到工具層級建立授權，搭配遮罩、審核與審計日誌，降低資料外洩風險。</p>
               <ul class="feature-list">
-                <li>RBAC 與動態授權</li>
-                <li>高風險操作人工覆核</li>
-                <li>完整工具調用軌跡</li>
+                <li data-en="RBAC &amp; Dynamic Authorization">RBAC 與動態授權</li>
+                <li data-en="Human review for high-risk operations">高風險操作人工覆核</li>
+                <li data-en="Complete tool call audit trail">完整工具調用軌跡</li>
               </ul>
             </article>
             <article class="advantage-card">
-              <h3>MCP 與企業系統連接</h3>
-              <p>把 ERP、CRM、資料庫、API 與外部 SaaS 封裝為受控工具，讓 Agent 不只回答，也能安全執行任務。</p>
+              <h3 data-en="MCP &amp; Enterprise System Integration">MCP 與企業系統連接</h3>
+              <p data-en="Wrap ERP, CRM, databases, APIs, and external SaaS into controlled tools — so Agents can not only answer questions but also safely execute tasks.">把 ERP、CRM、資料庫、API 與外部 SaaS 封裝為受控工具，讓 Agent 不只回答，也能安全執行任務。</p>
               <ul class="feature-list">
                 <li>MCP Tool Provider</li>
-                <li>API / Lambda / SaaS 串接</li>
-                <li>工具級權限與配額</li>
+                <li data-en="API / Lambda / SaaS Integration">API / Lambda / SaaS 串接</li>
+                <li data-en="Tool-level permissions and quotas">工具級權限與配額</li>
               </ul>
             </article>
             <article class="advantage-card">
-              <h3>知識庫助手與 Vibe coding</h3>
-              <p>把知識檢索、SOP、Prompt、資料引用與小工具產生流程放進同一個工作台，讓業務需求快速成形。</p>
+              <h3 data-en="Knowledge Base Assistant &amp; Vibe Coding">知識庫助手與 Vibe coding</h3>
+              <p data-en="Bring knowledge retrieval, SOP, Prompt, data citation, and tool generation workflows into a single workbench — turning business needs into reality quickly.">把知識檢索、SOP、Prompt、資料引用與小工具產生流程放進同一個工作台，讓業務需求快速成形。</p>
               <ul class="feature-list">
-                <li>文件與知識庫 Agent</li>
-                <li>工具功能快速生成</li>
-                <li>報告與任務流程輸出</li>
+                <li data-en="Document &amp; Knowledge Base Agent">文件與知識庫 Agent</li>
+                <li data-en="Rapid tool feature generation">工具功能快速生成</li>
+                <li data-en="Report and task workflow output">報告與任務流程輸出</li>
               </ul>
             </article>
           </div>
           <div class="value-chain" aria-label="AI 價值鏈四層">
             <article class="value-layer">
               <span>Level 1</span>
-              <strong>LLM 模型</strong>
-              <p>推理、語言理解與模型路由，依任務選擇最合適的模型。</p>
+              <strong data-en="LLM Models">LLM 模型</strong>
+              <p data-en="Reasoning, language understanding, and model routing — select the best model for each task.">推理、語言理解與模型路由，依任務選擇最合適的模型。</p>
             </article>
             <article class="value-layer">
               <span>Level 2</span>
-              <strong>MCP 工具</strong>
-              <p>連接資料庫、API、ERP、文件庫與外部工具。</p>
+              <strong data-en="MCP Tools">MCP 工具</strong>
+              <p data-en="Connect databases, APIs, ERP, document repositories, and external tools.">連接資料庫、API、ERP、文件庫與外部工具。</p>
             </article>
             <article class="value-layer">
               <span>Level 3</span>
               <strong>Skills</strong>
-              <p>封裝 SOP、Prompt、業務邏輯與合規規則。</p>
+              <p data-en="Encapsulate SOP, Prompt, business logic, and compliance rules.">封裝 SOP、Prompt、業務邏輯與合規規則。</p>
             </article>
             <article class="value-layer">
               <span>Level 4</span>
               <strong>AI Agent</strong>
-              <p>面向使用者完成跨工具、跨資料、跨流程任務。</p>
+              <p data-en="Complete cross-tool, cross-data, and cross-workflow tasks for end users.">面向使用者完成跨工具、跨資料、跨流程任務。</p>
             </article>
           </div>
         </div>
@@ -3513,51 +3532,51 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">WHY ORIENTAI</div>
-            <h2>AI 孤島升級為可治理的 Agent 平台</h2>
-            <p>OrientAI 的差異不只在 Agent 數量，而是把權限、成本、審計、工具共享與 AI Server 資源放進同一個治理閉環。</p>
+            <h2 data-en="Upgrade AI Silos to a Governable Agent Platform">AI 孤島升級為可治理的 Agent 平台</h2>
+            <p data-en="OrientAI's differentiation goes beyond Agent count — it places permissions, cost, audit, tool sharing, and AI Server resources into a single governance loop.">OrientAI 的差異不只在 Agent 數量，而是把權限、成本、審計、工具共享與 AI Server 資源放進同一個治理閉環。</p>
           </div>
           <div class="matrix" role="table" aria-label="OrientAI 比較表">
             <div class="matrix-row head" role="row">
-              <div role="columnheader">能力</div>
+              <div role="columnheader" data-en="Capability">能力</div>
               <div role="columnheader">OrientAI</div>
-              <div role="columnheader">傳統 AI 部署</div>
-              <div role="columnheader">個人 AI 工具</div>
-              <div role="columnheader">單點知識庫</div>
+              <div role="columnheader" data-en="Traditional AI Deployment">傳統 AI 部署</div>
+              <div role="columnheader" data-en="Personal AI Tools">個人 AI 工具</div>
+              <div role="columnheader" data-en="Point-Solution KB">單點知識庫</div>
             </div>
             <div class="matrix-row" role="row">
-              <div class="strong">權限管控</div>
-              <div class="yes">動態授權 + 審批</div>
-              <div class="partial">靜態 API Key</div>
-              <div class="no">個人自行管理</div>
-              <div class="partial">文件權限為主</div>
+              <div class="strong" data-en="Access Control">權限管控</div>
+              <div class="yes" data-en="Dynamic Auth + Approval">動態授權 + 審批</div>
+              <div class="partial" data-en="Static API Key">靜態 API Key</div>
+              <div class="no" data-en="Self-managed">個人自行管理</div>
+              <div class="partial" data-en="Doc-level permissions">文件權限為主</div>
             </div>
             <div class="matrix-row" role="row">
-              <div class="strong">資源與成本</div>
-              <div class="yes">部門配額 + Token 預算</div>
-              <div class="partial">共用資源池</div>
-              <div class="no">難以控管</div>
-              <div class="partial">僅查詢成本</div>
+              <div class="strong" data-en="Resources &amp; Cost">資源與成本</div>
+              <div class="yes" data-en="Dept Quotas + Token Budget">部門配額 + Token 預算</div>
+              <div class="partial" data-en="Shared resource pool">共用資源池</div>
+              <div class="no" data-en="Hard to control">難以控管</div>
+              <div class="partial" data-en="Query cost only">僅查詢成本</div>
             </div>
             <div class="matrix-row" role="row">
-              <div class="strong">安全審計</div>
-              <div class="yes">留存工具參數與回應</div>
-              <div class="partial">粗略 Call Log</div>
-              <div class="no">通常不可見</div>
-              <div class="partial">文件存取紀錄</div>
+              <div class="strong" data-en="Security Audit">安全審計</div>
+              <div class="yes" data-en="Retain tool params &amp; responses">留存工具參數與回應</div>
+              <div class="partial" data-en="Basic Call Log">粗略 Call Log</div>
+              <div class="no" data-en="Usually invisible">通常不可見</div>
+              <div class="partial" data-en="Document access records">文件存取紀錄</div>
             </div>
             <div class="matrix-row" role="row">
-              <div class="strong">工具共享</div>
-              <div class="yes">Agent 市集化上架</div>
-              <div class="no">孤島式開發</div>
-              <div class="no">不支援</div>
-              <div class="partial">知識庫共享</div>
+              <div class="strong" data-en="Tool Sharing">工具共享</div>
+              <div class="yes" data-en="Agent Marketplace Listing">Agent 市集化上架</div>
+              <div class="no" data-en="Siloed development">孤島式開發</div>
+              <div class="no" data-en="Not supported">不支援</div>
+              <div class="partial" data-en="Knowledge base sharing">知識庫共享</div>
             </div>
             <div class="matrix-row" role="row">
-              <div class="strong">部署底座</div>
-              <div class="yes">搭配 AI Server</div>
-              <div class="partial">依專案配置</div>
-              <div class="no">外部雲端為主</div>
-              <div class="partial">視產品而定</div>
+              <div class="strong" data-en="Deployment Base">部署底座</div>
+              <div class="yes" data-en="With AI Server">搭配 AI Server</div>
+              <div class="partial" data-en="Project-based config">依專案配置</div>
+              <div class="no" data-en="Primarily external cloud">外部雲端為主</div>
+              <div class="partial" data-en="Product-dependent">視產品而定</div>
             </div>
           </div>
         </div>
@@ -3567,20 +3586,20 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">DEPLOYMENT</div>
-            <h2>先驗證效益，再部署 AI Server</h2>
+            <h2 data-en="Validate Value First, Then Deploy AI Server">先驗證效益，再部署 AI Server</h2>
           </div>
           <div class="deploy-grid">
             <article class="deploy-card">
-              <h3>部門試行</h3>
-              <p>先以知識庫助手、報告 Agent 或 Vibe coding 場景驗證效益，快速建立第一批成功案例。</p>
+              <h3 data-en="Department Pilot">部門試行</h3>
+              <p data-en="Start with knowledge base assistants, report Agents, or Vibe coding scenarios to validate value and build early success cases.">先以知識庫助手、報告 Agent 或 Vibe coding 場景驗證效益，快速建立第一批成功案例。</p>
             </article>
             <article class="deploy-card recommended">
-              <h3>AI Server 專屬環境</h3>
-              <p>把模型推論、知識庫、Agent Runtime 與權限治理部署到企業可控環境，適合跨部門擴散。</p>
+              <h3 data-en="Dedicated AI Server Environment">AI Server 專屬環境</h3>
+              <p data-en="Deploy model inference, knowledge bases, Agent Runtime, and permission governance into a controlled enterprise environment — ideal for cross-department scaling.">把模型推論、知識庫、Agent Runtime 與權限治理部署到企業可控環境，適合跨部門擴散。</p>
             </article>
             <article class="deploy-card">
-              <h3>混合雲與地端部署</h3>
-              <p>依資料敏感度與成本需求選擇地端、私有雲或雲端模型路由，兼顧效能與資料主權。</p>
+              <h3 data-en="Hybrid Cloud &amp; On-Premise Deployment">混合雲與地端部署</h3>
+              <p data-en="Choose on-premise, private cloud, or cloud model routing based on data sensitivity and cost requirements — balancing performance and data sovereignty.">依資料敏感度與成本需求選擇地端、私有雲或雲端模型路由，兼顧效能與資料主權。</p>
             </article>
           </div>
         </div>
@@ -3590,24 +3609,24 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">PROFESSIONAL SERVICES</div>
-            <h2>產品、AI Server 與 SI 服務一起落地</h2>
+            <h2 data-en="Product, AI Server &amp; SI Services — End-to-End Delivery">產品、AI Server 與 SI 服務一起落地</h2>
           </div>
           <div class="service-grid">
             <article class="service-card">
-              <h3>企業 AI 藍圖顧問</h3>
-              <p>盤點流程、資料、權限與優先場景，規劃從 Agent 市集到 AI Server 的導入節奏。</p>
+              <h3 data-en="Enterprise AI Blueprint Consulting">企業 AI 藍圖顧問</h3>
+              <p data-en="Inventory processes, data, permissions, and priority scenarios — plan the rollout cadence from Agent Marketplace to AI Server.">盤點流程、資料、權限與優先場景，規劃從 Agent 市集到 AI Server 的導入節奏。</p>
             </article>
             <article class="service-card">
-              <h3>專案開發與 SI</h3>
-              <p>承接 MCP 工具、API、資料庫、ERP、CRM、權限系統與既有流程整合。</p>
+              <h3 data-en="Project Development &amp; SI">專案開發與 SI</h3>
+              <p data-en="Handles MCP tool, API, database, ERP, CRM, permission system, and existing workflow integration.">承接 MCP 工具、API、資料庫、ERP、CRM、權限系統與既有流程整合。</p>
             </article>
             <article class="service-card">
-              <h3>講師培訓與工作坊</h3>
-              <p>從主管共識、AI 素養到 Agent 市集使用、知識庫助手與 Vibe coding 實作。</p>
+              <h3 data-en="Training &amp; Workshops">講師培訓與工作坊</h3>
+              <p data-en="From executive alignment and AI literacy to Agent Marketplace usage, knowledge base assistants, and Vibe coding hands-on.">從主管共識、AI 素養到 Agent 市集使用、知識庫助手與 Vibe coding 實作。</p>
             </article>
             <article class="service-card">
-              <h3>上線營運優化</h3>
-              <p>追蹤使用率、Token 成本、工具調用、知識品質與部門擴散，持續迭代成效。</p>
+              <h3 data-en="Post-Launch Operations Optimization">上線營運優化</h3>
+              <p data-en="Track usage rates, Token costs, tool calls, knowledge quality, and department expansion — continuously iterate for better results.">追蹤使用率、Token 成本、工具調用、知識品質與部門擴散，持續迭代成效。</p>
             </article>
           </div>
         </div>
@@ -3617,32 +3636,32 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">USE CASES</div>
-            <h2>從能被市集化、工具化、知識化的任務開始。</h2>
+            <h2 data-en="Start with Tasks That Can Be Marketplaced, Toolified &amp; Knowledge-Enabled">從能被市集化、工具化、知識化的任務開始。</h2>
           </div>
           <div class="usecase-grid">
             <article class="usecase-card">
-              <h3>知識庫助手</h3>
-              <p>將制度、SOP、產品資料與內部文件轉成可追溯引用的企業問答與任務助手。</p>
+              <h3 data-en="Knowledge Base Assistant">知識庫助手</h3>
+              <p data-en="Convert policies, SOPs, product data, and internal documents into enterprise Q&amp;A and task assistants with traceable citations.">將制度、SOP、產品資料與內部文件轉成可追溯引用的企業問答與任務助手。</p>
             </article>
             <article class="usecase-card">
-              <h3>Vibe coding 工具平台</h3>
-              <p>讓業務需求快速變成小工具、資料查詢介面或流程輔助功能，再由 IT 進行治理與整合。</p>
+              <h3 data-en="Vibe Coding Tool Platform">Vibe coding 工具平台</h3>
+              <p data-en="Quickly turn business needs into mini-tools, data query interfaces, or workflow aids — then governed and integrated by IT.">讓業務需求快速變成小工具、資料查詢介面或流程輔助功能，再由 IT 進行治理與整合。</p>
             </article>
             <article class="usecase-card">
-              <h3>部門 Agent 市集</h3>
-              <p>讓 HR、IT、財務、法遵、客服與業務能在同一入口領用被核准的 AI Agent。</p>
+              <h3 data-en="Department Agent Marketplace">部門 Agent 市集</h3>
+              <p data-en="Allow HR, IT, finance, compliance, customer service, and sales to access approved AI Agents from a single portal.">讓 HR、IT、財務、法遵、客服與業務能在同一入口領用被核准的 AI Agent。</p>
             </article>
             <article class="usecase-card">
               <h3>IT Help Desk</h3>
-              <p>連接 IT 文件、服務台紀錄與系統狀態，提供排除步驟，必要時呼叫內部工具。</p>
+              <p data-en="Connect IT documentation, service desk records, and system status to provide resolution steps — and call internal tools when needed.">連接 IT 文件、服務台紀錄與系統狀態，提供排除步驟，必要時呼叫內部工具。</p>
             </article>
             <article class="usecase-card">
-              <h3>法遵與稽核報告</h3>
-              <p>整合法規、內規、過往查核紀錄與營運資料，自動產生摘要、風險點與佐證引用。</p>
+              <h3 data-en="Compliance &amp; Audit Reports">法遵與稽核報告</h3>
+              <p data-en="Integrate regulations, internal policies, past audit records, and operational data to automatically generate summaries, risk highlights, and supporting citations.">整合法規、內規、過往查核紀錄與營運資料，自動產生摘要、風險點與佐證引用。</p>
             </article>
             <article class="usecase-card">
-              <h3>管理報告與營運摘要</h3>
-              <p>串接資料來源、知識庫與報告模板，讓週報、月報與主管摘要從人工彙整轉為受控生成。</p>
+              <h3 data-en="Management Reports &amp; Operations Summaries">管理報告與營運摘要</h3>
+              <p data-en="Connect data sources, knowledge bases, and report templates to turn weekly reports, monthly reports, and executive summaries from manual work into controlled, AI-generated outputs.">串接資料來源、知識庫與報告模板，讓週報、月報與主管摘要從人工彙整轉為受控生成。</p>
             </article>
           </div>
         </div>
@@ -3651,12 +3670,12 @@
       <section id="contact" class="cta">
         <div class="cta-inner">
           <div>
-            <h2>準備把 OrientAI 放進你的企業 AI 藍圖？</h2>
-            <p>
+            <h2 data-en="Ready to Add OrientAI to Your Enterprise AI Blueprint?">準備把 OrientAI 放進你的企業 AI 藍圖？</h2>
+            <p data-en="Schedule a Demo and onboarding consultation. TPIsoftware will help you map out Agent Marketplace, enterprise permissions, knowledge base assistants, Vibe coding, AI Server, and system integration paths.">
               預約 Demo 與導入諮詢，TPIsoftware 將協助你盤點 Agent 市集、企業權限、知識庫助手、Vibe coding、AI Server 與系統整合路徑。
             </p>
           </div>
-          <a class="button primary" href="https://www.tpisoftware.com/contact-us">聯絡 TPIsoftware -></a>
+          <a class="button primary" href="https://www.tpisoftware.com/contact-us" data-en="Contact TPIsoftware ->">聯絡 TPIsoftware -></a>
         </div>
       </section>
     </main>
@@ -3708,6 +3727,25 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeVideoModal();
       });
+
+      /* Language toggle */
+      (function () {
+        var currentLang = 'zh';
+        var btn = document.getElementById('lang-toggle');
+
+        btn.addEventListener('click', function () {
+          currentLang = currentLang === 'zh' ? 'en' : 'zh';
+          btn.textContent = currentLang === 'zh' ? 'EN' : '中';
+          document.querySelectorAll('[data-en]').forEach(function (el) {
+            if (currentLang === 'en') {
+              if (!el.dataset.zh) el.dataset.zh = el.innerHTML;
+              el.innerHTML = el.dataset.en;
+            } else {
+              if (el.dataset.zh) el.innerHTML = el.dataset.zh;
+            }
+          });
+        });
+      })();
     </script>
   </body>
 </html>
