@@ -2303,6 +2303,64 @@
       .showcase-text h3 { margin: 0 0 14px; font-size: 26px; line-height: 1.28; }
       .showcase-text p { color: var(--muted); font-size: 16px; margin: 0 0 20px; }
 
+      /* ── Mobile hamburger nav ─────────────────────────────── */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 2px;
+        background: var(--ink);
+        border-radius: 2px;
+        transition: transform 0.22s ease, opacity 0.18s ease;
+      }
+
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        z-index: 19;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 24px rgba(25, 33, 61, 0.12);
+      }
+
+      .mobile-nav-overlay.open { display: block; }
+
+      .mobile-nav-overlay a {
+        display: block;
+        padding: 16px 20px;
+        font-size: 16px;
+        font-weight: 800;
+        color: #3f4656;
+        border-bottom: 1px solid var(--line);
+        transition: background 120ms;
+      }
+
+      .mobile-nav-overlay a:last-child { border-bottom: none; }
+
+      .mobile-nav-overlay a:hover,
+      .mobile-nav-overlay a:active { background: var(--soft); }
+
       @media (max-height: 760px) and (min-width: 1041px) {
         :root {
           --header-height: 68px;
@@ -2955,59 +3013,7 @@
         }
       }
 
-      /* ── Mobile hamburger nav ─────────────────────────────── */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        width: 40px;
-        height: 40px;
-        padding: 8px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        border-radius: 6px;
-        flex-shrink: 0;
-      }
 
-      .hamburger span {
-        display: block;
-        height: 2px;
-        background: var(--ink);
-        border-radius: 2px;
-        transition: transform 0.22s ease, opacity 0.18s ease, transform 0.22s ease;
-      }
-
-      .hamburger.open span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-
-      .hamburger.open span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
-
-      .mobile-nav-overlay {
-        display: none;
-        position: fixed;
-        top: var(--header-height);
-        left: 0;
-        right: 0;
-        z-index: 19;
-        background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 8px 24px rgba(25, 33, 61, 0.12);
-      }
-
-      .mobile-nav-overlay.open {
-        display: block;
-      }
 
       .mobile-nav-overlay a {
         display: block;
