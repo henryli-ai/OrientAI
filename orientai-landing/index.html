@@ -2928,6 +2928,104 @@
           text-align: center;
           justify-content: center;
         }
+
+        /* Fix critical text-overflow */
+        .section-head h2 {
+          white-space: normal;
+        }
+
+        .aiso-panel-head strong {
+          white-space: normal;
+        }
+
+        /* Show hamburger */
+        .hamburger {
+          display: flex;
+        }
+
+        /* Better touch targets for buttons */
+        .button {
+          min-height: 48px;
+        }
+
+        /* Footer stack */
+        .footer-inner {
+          flex-direction: column;
+          gap: 6px;
+        }
+      }
+
+      /* ── Mobile hamburger nav ─────────────────────────────── */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 2px;
+        background: var(--ink);
+        border-radius: 2px;
+        transition: transform 0.22s ease, opacity 0.18s ease, transform 0.22s ease;
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        z-index: 19;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 24px rgba(25, 33, 61, 0.12);
+      }
+
+      .mobile-nav-overlay.open {
+        display: block;
+      }
+
+      .mobile-nav-overlay a {
+        display: block;
+        padding: 16px 20px;
+        font-size: 16px;
+        font-weight: 800;
+        color: #3f4656;
+        border-bottom: 1px solid var(--line);
+        transition: background 120ms;
+      }
+
+      .mobile-nav-overlay a:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-nav-overlay a:hover,
+      .mobile-nav-overlay a:active {
+        background: var(--soft);
       }
     </style>
   </head>
@@ -2946,7 +3044,18 @@
           <a href="#contact" data-en="Book a Demo">預約諮詢</a>
         </div>
         <button id="lang-toggle" class="lang-btn" aria-label="切換語言 / Switch Language">EN</button>
+        <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+      <div class="mobile-nav-overlay" id="mobile-nav" role="navigation" aria-label="行動版選單">
+        <a href="#orientai">OrientAI</a>
+        <a href="#express">OrientAI Express</a>
+        <a href="#aiso">OrientAI+AISO</a>
+        <a href="#contact" data-en="Book a Demo">預約諮詢</a>
+      </div>
     </header>
 
     <main id="top">
@@ -3744,6 +3853,32 @@
               if (el.dataset.zh) el.innerHTML = el.dataset.zh;
             }
           });
+        });
+      })();
+
+      /* Mobile hamburger */
+      (function () {
+        var hamburger = document.getElementById('hamburger');
+        var mobileNav = document.getElementById('mobile-nav');
+
+        function closeMobileNav() {
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          mobileNav.classList.remove('open');
+        }
+
+        hamburger.addEventListener('click', function () {
+          var isOpen = this.classList.toggle('open');
+          this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileNav.classList.toggle('open');
+        });
+
+        mobileNav.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', closeMobileNav);
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeMobileNav();
         });
       })();
     </script>
