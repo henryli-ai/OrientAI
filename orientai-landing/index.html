@@ -891,7 +891,7 @@
 
       .express-tagline,
       .aiso-tagline {
-        margin: 10px 0 0;
+        margin: 20px 0 0;
         color: #263247;
         font-size: 26px;
         line-height: 1.25;
@@ -909,7 +909,7 @@
 
       .aiso-summary {
         max-width: 590px;
-        margin: 20px 0 0;
+        margin: 28px 0 0;
         color: #4c5669;
         font-size: 18px;
         font-weight: 650;
@@ -2070,6 +2070,22 @@
         from { opacity: 0; transform: translateY(8px); }
         to   { opacity: 1; transform: translateY(0); }
       }
+      @keyframes gradient-flow {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .aiso-tagline-animated {
+        background: linear-gradient(270deg, #000000, #4a0080, #7c3aed, #f97316, #ea580c, #7c3aed, #4a0080, #000000);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient-flow 4s ease infinite;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        display: inline-block;
+      }
 
       /* Prevent orphan words */
       h1, h2, h3 { text-wrap: balance; }
@@ -3219,10 +3235,8 @@
         <div class="aiso-inner">
           <div class="aiso-layout">
             <div class="aiso-copy">
-              <div class="section-kicker">OreintAI+AISO</div>
-              <h1 id="aiso-title" data-en="OrientAI on AISO —&lt;br /&gt;Enterprise AI at Enterprise Scale">OrientAI 裝在 AISO 上，<br />企業 AI 才能真正擴大使用</h1>
-              <p class="aiso-company">AISO Alliance · TPIsoftware × Phison</p>
-              <p class="aiso-tagline" data-en="Sovereign AI Infrastructure — From Pilot to Company-Wide Deployment">主權 AI 基礎建設，讓 Agent 從試點走向全公司</p>
+              <h1 id="aiso-title" data-en="OrientAI on AISO —&lt;br /&gt;Enterprise AI at Enterprise Scale">OrientAI 裝在 AISO 上，<br />確保企業資料安全採用AI</h1>
+              <p class="aiso-tagline" data-en="Sensitive data runs on-premise, ensuring data security"><span class="aiso-tagline-animated">機敏資料在地端運行，確保資料安全</span></p>
               <p class="aiso-summary" data-en="OrientAI paired with AISO's AI SERVER series places the Agent Marketplace, knowledge base, RAG, model inference, and enterprise governance into a controlled, on-premise environment.">
                 OrientAI 搭配 AISO 的 AI SERVER 系列產品，將 Agent 市集、知識庫、RAG、模型推論與企業治理放在可控環境中運作。
               </p>
@@ -3303,7 +3317,7 @@
                   <span data-en="Set Token budgets and quotas by department, project, and Agent to prevent Shadow AI and redundant consumption.">以部門、專案、Agent 設定 Token 預算與配額，避免 Shadow AI 與重複消耗。</span>
                 </article>
                 <article class="server-card">
-                  <strong data-en="Plug &amp; Play">即插即用</strong>
+                  <strong data-en="Plug &amp; Play">開機即用</strong>
                   <span data-en="With OrientAI's pre-built Agents, knowledge bases, and tool workflows, shorten the path from PoC to production.">搭配 OrientAI 預建 Agent、知識庫與工具流程，縮短從 PoC 到正式上線的距離。</span>
                 </article>
                 <article class="server-card">
@@ -3426,7 +3440,7 @@
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">WHY ENTERPRISE AGENTS NEED GOVERNANCE</div>
-            <h2 data-en="Enterprises Don't Lack AI — They Lack Agent Governance">企業不缺 AI，缺的是 Agent 治理</h2>
+            <h2 data-en="Enterprises Don't Lack AI — They Lack Agent Governance">企業除了導入AI應用，更重要的是Agent治理</h2>
             <p data-en="AI Gateway 2.0 upgrades from a model channel to a control tower for Agent permissions, costs, and audits.">AI Gateway 2.0 從模型通道升級為 Agent 權限、成本與審計的控制塔。</p>
           </div>
           <div class="pain-grid">
@@ -3726,61 +3740,12 @@
         </div>
       </section>
 
-      <section>
-        <div class="section-inner">
-          <div class="section-head">
-            <div class="section-kicker">DEPLOYMENT</div>
-            <h2 data-en="Validate Value First, Then Deploy AI Server">先驗證效益，再部署 AI Server</h2>
-          </div>
-          <div class="deploy-grid">
-            <article class="deploy-card">
-              <h3 data-en="Department Pilot">部門試行</h3>
-              <p data-en="Start with knowledge base assistants, report Agents, or Vibe coding scenarios to validate value and build early success cases.">先以知識庫助手、報告 Agent 或 Vibe coding 場景驗證效益，快速建立第一批成功案例。</p>
-            </article>
-            <article class="deploy-card recommended">
-              <h3 data-en="Dedicated AI Server Environment">AI Server 專屬環境</h3>
-              <p data-en="Deploy model inference, knowledge bases, Agent Runtime, and permission governance into a controlled enterprise environment — ideal for cross-department scaling.">把模型推論、知識庫、Agent Runtime 與權限治理部署到企業可控環境，適合跨部門擴散。</p>
-            </article>
-            <article class="deploy-card">
-              <h3 data-en="Hybrid Cloud &amp; On-Premise Deployment">混合雲與地端部署</h3>
-              <p data-en="Choose on-premise, private cloud, or cloud model routing based on data sensitivity and cost requirements — balancing performance and data sovereignty.">依資料敏感度與成本需求選擇地端、私有雲或雲端模型路由，兼顧效能與資料主權。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" class="service-section">
-        <div class="section-inner">
-          <div class="section-head">
-            <div class="section-kicker">PROFESSIONAL SERVICES</div>
-            <h2 data-en="Product, AI Server &amp; SI Services — End-to-End Delivery">產品、AI Server 與 SI 服務一起落地</h2>
-          </div>
-          <div class="service-grid">
-            <article class="service-card">
-              <h3 data-en="Enterprise AI Blueprint Consulting">企業 AI 藍圖顧問</h3>
-              <p data-en="Inventory processes, data, permissions, and priority scenarios — plan the rollout cadence from Agent Marketplace to AI Server.">盤點流程、資料、權限與優先場景，規劃從 Agent 市集到 AI Server 的導入節奏。</p>
-            </article>
-            <article class="service-card">
-              <h3 data-en="Project Development &amp; SI">專案開發與 SI</h3>
-              <p data-en="Handles MCP tool, API, database, ERP, CRM, permission system, and existing workflow integration.">承接 MCP 工具、API、資料庫、ERP、CRM、權限系統與既有流程整合。</p>
-            </article>
-            <article class="service-card">
-              <h3 data-en="Training &amp; Workshops">講師培訓與工作坊</h3>
-              <p data-en="From executive alignment and AI literacy to Agent Marketplace usage, knowledge base assistants, and Vibe coding hands-on.">從主管共識、AI 素養到 Agent 市集使用、知識庫助手與 Vibe coding 實作。</p>
-            </article>
-            <article class="service-card">
-              <h3 data-en="Post-Launch Operations Optimization">上線營運優化</h3>
-              <p data-en="Track usage rates, Token costs, tool calls, knowledge quality, and department expansion — continuously iterate for better results.">追蹤使用率、Token 成本、工具調用、知識品質與部門擴散，持續迭代成效。</p>
-            </article>
-          </div>
-        </div>
-      </section>
 
       <section>
         <div class="section-inner">
           <div class="section-head">
             <div class="section-kicker">USE CASES</div>
-            <h2 data-en="Start with Tasks That Can Be Marketplaced, Toolified &amp; Knowledge-Enabled">從能被市集化、工具化、知識化的任務開始。</h2>
+            <h2 data-en="Start with Tasks That Can Be Marketplaced, Toolified &amp; Knowledge-Enabled">滿足企業大部分的需求情境</h2>
           </div>
           <div class="usecase-grid">
             <article class="usecase-card">
